@@ -1,8 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
 html, body { height: 100%; }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgb(236, 226, 226); 
+}
+
+.sub-container{
+    background-color: white;
+    margin: 12px;
+    padding: 12px;
 }

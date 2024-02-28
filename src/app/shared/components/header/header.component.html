@@ -2,10 +2,10 @@
     <span>Apna Market</span>
     <input type="text" name="search" id="search" class="header__input" />
     <span>
-        Rahul
+        <a [routerLink]="'user'">Rahul</a> 
     </span>
     <span>
-        Cart
+        <a [routerLink]="'cart'">Cart</a> 
     </span>
     <span>
         More
@@ -13,6 +13,8 @@
 </mat-toolbar>
 <mat-toolbar class="header__category-section">
     <ul class="header__category-list">
-        <li *ngFor="let category of categories">{{category.title}}</li>
+        <li *ngFor="let category of categories">
+            {{category.title}}
+        </li>
     </ul>
 </mat-toolbar>

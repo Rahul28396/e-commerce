@@ -8,6 +8,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { CommonMaterialModule } from './modules/common-material/common-material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     CommonMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

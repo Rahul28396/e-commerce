@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    CarouselModule
   ]
 })
 export class HomeModule { }
