@@ -1,0 +1,19 @@
+{
+  "categories": [
+    { "id": "1", "title": "Grocery" },
+    { "id": "2", "title": "Mobiles" },
+    { "id": "3", "title": "Fashion" },
+    { "id": "4", "title": "Electronics" },
+    { "id": "5", "title": "Appliances" },
+    { "id": "6", "title": "Travel" },
+    { "id": "7", "title": "Beauty, Toys & More" },
+    { "id": "8", "title": "Home & Furniture" }
+  ],
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" },
+    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
