@@ -1,5 +1,5 @@
 <mat-toolbar class="header">
-    <span>Apna Market</span>
+    <span id="company-name">Apna Market</span>
     <input type="text" name="search" id="search" class="header__input" />
     <span>
         <a [routerLink]="'user'">Rahul</a> 
@@ -13,8 +13,6 @@
 </mat-toolbar>
 <mat-toolbar class="header__category-section">
     <ul class="header__category-list">
-        <li *ngFor="let category of categories">
-            {{category.title}}
-        </li>
+        <li *ngFor="let category of categories">{{category.title}}</li>
     </ul>
 </mat-toolbar>
