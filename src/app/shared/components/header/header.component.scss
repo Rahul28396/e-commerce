@@ -5,6 +5,13 @@
     font-weight: 600;
     justify-content: space-evenly;
 
+    &__container {
+        position: fixed;
+        z-index: 10000;
+        width: 100%;
+        top: 0;
+    }
+
     &__input {
         padding: 12px;
         width: 50%;

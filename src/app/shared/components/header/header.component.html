@@ -1,26 +1,28 @@
-<mat-toolbar class="header">
-    <span id="company-name">
-        <a routerLink="/">
-            Apna Market
-        </a>
-    </span>
-    <input type="text" name="search" id="search" class="header__input" />
-    <span>
-        <a [routerLink]="'user'">Rahul</a>
-    </span>
-    <span>
-        <a [routerLink]="'cart'">Cart</a>
-    </span>
-    <span>
-        More
-    </span>
-</mat-toolbar>
-<mat-toolbar class="header__category-section">
-    <ul class="header__category-list">
-        <li *ngFor="let category of categories">
-            <a [routerLink]="'/products/'+category.id">
-                {{category.name}}
+<header class="header__container">
+    <mat-toolbar class="header">
+        <span id="company-name">
+            <a routerLink="/">
+                Apna Market
             </a>
-        </li>
-    </ul>
-</mat-toolbar>
+        </span>
+        <input type="text" name="search" id="search" class="header__input" />
+        <span>
+            <a [routerLink]="'user'">Rahul</a>
+        </span>
+        <span>
+            <a [routerLink]="'cart'">Cart</a>
+        </span>
+        <span>
+            More
+        </span>
+    </mat-toolbar>
+    <mat-toolbar class="header__category-section">
+        <ul class="header__category-list">
+            <li *ngFor="let category of categories">
+                <a [routerLink]="'/products/'+category.id">
+                    {{category.name}}
+                </a>
+            </li>
+        </ul>
+    </mat-toolbar>
+</header>

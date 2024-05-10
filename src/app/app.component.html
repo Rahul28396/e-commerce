@@ -1,10 +1,13 @@
 <app-header />
-<router-outlet></router-outlet>
-<app-footer>
-    <ng-template #defaultContent>
-        <div>Default footer Text</div>
-    </ng-template>
 
-    <!-- Custom content -->
-    <div>Custom footer Text</div>
-</app-footer>
+<main>
+    <router-outlet></router-outlet>
+    <app-footer>
+        <ng-template #defaultContent>
+            <div>Default footer Text</div>
+        </ng-template>
+
+        <!-- Custom content -->
+        <div>Custom footer Text</div>
+    </app-footer>
+</main>

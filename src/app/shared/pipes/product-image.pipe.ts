@@ -5,12 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ProductImagePipe implements PipeTransform {
 
-  noImageLink = 'assets/images/no-image-available.png';
+  noImageLink = 'assets/images/no-Image-available.png';
 
-  transform(values: string[]): string {
-    const images = values;
-    
-    return images[0] ?? this.noImageLink;
+  transform(values: string[] | Array<string>[]): string {
+    const images = values.map(element => Array.isArray(element) ? element[0] : element);   
+    const imgLink = images[0].replace('[','').replace(']','').replaceAll('"','');
+    const imageFormats = ['jpeg','jpg','png'];
+    return imgLink.includes(imageFormats[0]) || imgLink.includes(imageFormats[1]) || imgLink.includes(imageFormats[2]) ? imgLink : this.noImageLink;
   }
 
 }

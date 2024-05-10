@@ -1,8 +1,13 @@
 <div class="product-card" *ngIf="productInfo">
     <img [src]="productInfo.images | productImage" alt="Smartphone" class="product-card__image">
     <div class="product-card__details">
-        <h2 class="product-card__name">{{productInfo.title | productHeaderText: 23}}</h2>
+        <h2 class="product-card__name">{{productInfo.title | productHeaderText: 20}}</h2>
         <p class="product-card__category">Category: {{productInfo.category.name}}</p>
-        <p class="product-card__price">Price: {{productInfo.price | currency}}</p>
+        <p class="product-card__price">
+            Price: {{productInfo.price | currency}}
+            <span class="product-card__price--off">
+                ({{productInfo.price + 30 | currency}})
+            </span>
+        </p>
     </div>
 </div>
