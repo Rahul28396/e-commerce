@@ -1,5 +1,5 @@
 <div class="product-card" *ngIf="productInfo">
-    <img [src]="productInfo.images[0]" alt="Smartphone" class="product-card__image">
+    <img [src]="productInfo.images | productImage" alt="Smartphone" class="product-card__image">
     <div class="product-card__details">
         <h2 class="product-card__name">{{productInfo.title | productHeaderText: 23}}</h2>
         <p class="product-card__category">Category: {{productInfo.category.name}}</p>

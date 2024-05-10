@@ -9,6 +9,7 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
 import { FilterProductPipe } from 'src/app/shared/pipes/filter-product.pipe';
 import { FormsModule } from '@angular/forms';
 import { ProductHeaderTextPipe } from 'src/app/shared/pipes/product-header-text.pipe';
+import { ProductImagePipe } from 'src/app/shared/pipes/product-image.pipe';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ProductHeaderTextPipe } from 'src/app/shared/pipes/product-header-text.
     ProductListComponent,
     ProductFilterComponent,
     FilterProductPipe,
-    ProductHeaderTextPipe
+    ProductHeaderTextPipe,
+    ProductImagePipe
   ],
   imports: [
     CommonModule,
