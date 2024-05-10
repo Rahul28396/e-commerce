@@ -9,14 +9,12 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { CommonMaterialModule } from './modules/common-material/common-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { ProductHeaderTextPipe } from './shared/pipes/product-header-text.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    ProductHeaderTextPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
