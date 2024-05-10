@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 })
 export class ProductDetailsComponent implements OnInit{
   productDetails!: Product;
+  selectedImage!: string;
   
   constructor(
     private _productService: ProductService,
@@ -24,11 +25,15 @@ export class ProductDetailsComponent implements OnInit{
       this._productService.getProduct(productId).subscribe({
         next: (data: Product) => {
           this.productDetails = data
-          console.log(data)
+          this.selectedImage = this.productDetails.images[0];
         }
       })
     })
     
+  }
+
+  changeSelectedImage(image: string){
+    this.selectedImage = image;
   }
 
 }

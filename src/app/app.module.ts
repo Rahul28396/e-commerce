@@ -10,6 +10,8 @@ import { CommonMaterialModule } from './modules/common-material/common-material.
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserAnimationsModule,
     CommonMaterialModule,
     HttpClientModule,
-    CarouselModule 
+    CarouselModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [
     provideAnimationsAsync()

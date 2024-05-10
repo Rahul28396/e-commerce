@@ -1,6 +1,12 @@
 <div class="container" *ngIf="productDetails">
     <div class="product-image">
-        <img [src]="productDetails.images | productImage" alt="Product Image">
+        <section>
+            <img [src]="selectedImage" alt="Product Image">
+        </section>
+        
+        <section class="product-details__image-slider">
+            <img *ngFor="let image of productDetails.images" [src]="image" alt="Product Image" (click)="changeSelectedImage(image)">
+        </section>
     </div>
     <div class="product-details">
         <h1>{{productDetails.title}}</h1>
@@ -21,10 +27,9 @@
             <p>Estimated Delivery: 3-5 business days</p>
             <p>Shipping: Free</p>
         </div>
-        <div class="social-sharing">
+        <!-- <div class="social-sharing">
             <p>Share:</p>
-            <!-- Social media icons -->
-        </div>
+        </div> -->
         <div class="additional-info">
             <h2>Additional Information</h2>
             <ul>

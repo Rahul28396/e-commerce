@@ -1,9 +1,9 @@
 .header {
     padding: 12px;
-    background-color: #216bf3;
     color: white;
     font-weight: 600;
     justify-content: space-evenly;
+    align-items: center;
 
     &__container {
         position: fixed;
@@ -12,28 +12,42 @@
         top: 0;
     }
 
-    &__input {
-        padding: 12px;
-        width: 50%;
-        border-radius: 4px;
-        border: none;
-    }
-
-    &__category-section {
-        background-color: white;
-        display: flex;
-        justify-content: center;
+    &__icon {
+        width: 80px;
     }
 
     &__category-list {
         list-style-type: none;
         display: flex;
-        width: 100%;
-        justify-content: space-evenly;
+        gap: 32px;
+        padding: 0;
     }
 
-    span a {
+    &__input {
+        padding: 12px;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+
+        &-container {
+            display: flex;
+            align-items: center;
+            width: 30%;
+        }
+
+        &-search-button {
+            position: relative;
+            right: 3rem;
+            background: white;
+            border: none;
+        }
+    }
+
+    span,
+    a {
         text-decoration: none;
-        color: white;
+        color: rgb(46 25 25 / 68%);
+        font-size: medium;
+        font-weight: 500;
     }
 }

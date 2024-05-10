@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { CartComponent } from './cart/cart.component';
+import { AddressFormComponent } from './address-form/address-form.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: CheckoutComponent
+    path: 'cart',
+    component: CartComponent
+  },
+  {
+    path: 'address',
+    component: AddressFormComponent
+  },
+  {
+    path: 'payment',
+    component: AddressFormComponent
   }
 ];
 

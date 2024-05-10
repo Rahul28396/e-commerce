@@ -3,6 +3,7 @@
     margin: 12px auto;
     padding: 20px;
     display: flex;
+    gap: 2rem;
 }
 
 .product-image img {
@@ -54,6 +55,7 @@
 }
 
 .shipping-info {
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -75,4 +77,11 @@
 
 .customer-support {
     margin-bottom: 20px;
+}
+
+.product-details__image-slider{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    height: 64px;
 }
