@@ -1,0 +1,11 @@
+<div class="footer-container">
+  <!-- Default content -->
+  <ng-container *ngIf="hasDefaultContent(); else customContent">
+    <ng-container *ngTemplateOutlet="defaultContentTemplate"></ng-container>
+  </ng-container>
+
+  <!-- Custom content -->
+  <ng-template #customContent>
+    <ng-content></ng-content>
+  </ng-template>
+</div>

@@ -1,31 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { ProductsRoutingModule } from './products-routing.module';
-import { ProductComponent } from './product/product.component';
+import { SharedComponentModule } from 'src/app/shared/components/shared-component.module';
+import { PipeModule } from 'src/app/shared/pipes/pipe.module';
+
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
-import { FilterProductPipe } from 'src/app/shared/pipes/filter-product.pipe';
-import { FormsModule } from '@angular/forms';
-import { ProductHeaderTextPipe } from 'src/app/shared/pipes/product-header-text.pipe';
-import { ProductImagePipe } from 'src/app/shared/pipes/product-image.pipe';
+
 
 
 @NgModule({
   declarations: [
-    ProductComponent,
     ProductDetailsComponent,
     ProductListComponent,
-    ProductFilterComponent,
-    FilterProductPipe,
-    ProductHeaderTextPipe,
-    ProductImagePipe
+    ProductFilterComponent
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedComponentModule,
+    PipeModule
   ]
 })
 export class ProductsModule { }

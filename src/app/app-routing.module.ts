@@ -17,6 +17,26 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./modules/user/user.module').then(m=>m.UserModule)
+  },
+  {
+    path: 'wishlist',
+    loadComponent: () => import('./components/wishlist/wishlist.component').then(c=>c.WishlistComponent)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./components/login/login.component').then(c => c.LoginComponent)
+  },
+  {
+    path: 'signup',
+    loadComponent: () => import('./components/signup/signup.component').then(c => c.SignupComponent)
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () => import('./components/forgot-password/forgot-password.component').then(c => c.ForgotPasswordComponent)
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./components/not-found/not-found.component').then(c => c.NotFoundComponent)
   }
 ];
 
