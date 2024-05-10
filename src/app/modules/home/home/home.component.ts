@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -6,7 +6,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  
   slidesStore = [
     {
       id: "1",
@@ -56,5 +57,9 @@ export class HomeComponent {
       }
     },
     nav: true
+  }
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 }

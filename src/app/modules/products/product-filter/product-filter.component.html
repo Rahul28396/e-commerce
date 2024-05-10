@@ -1,0 +1,38 @@
+<div class="sidebar">
+    <h2>Filter Products</h2>
+    <div class="filter-category">
+        <h3>Category</h3>
+        <ul>
+            <li><label><input type="checkbox" value="Electronics">Electronics</label></li>
+            <li><label><input type="checkbox" value="Clothing">Clothing</label></li>
+            <li><label><input type="checkbox" value="Accessories">Accessories</label></li>
+        </ul>
+    </div>
+    <div class="filter-price">
+        <h3>Price Range</h3>
+        <input type="range" min="0" max="1000" value="500" [(ngModel)]="price">
+        <p>Max Price: <span id="max-price">{{price}}</span>$</p>
+    </div>
+    <div class="filter-brand">
+        <h3>Brand</h3>
+        <select>
+            <option value="">All Brands</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Apple">Apple</option>
+            <option value="Nike">Nike</option>
+            <option value="Sony">Sony</option>
+        </select>
+    </div>
+    <div class="filter-sort">
+        <h3>Sort By</h3>
+        <select>
+            <option value="price-asc">Price Low to High</option>
+            <option value="price-desc">Price High to Low</option>
+            <option value="name-asc">Name A to Z</option>
+            <option value="name-desc">Name Z to A</option>
+        </select>
+    </div>
+    <br>
+    <br>
+    <button>Apply Filter</button>
+</div>

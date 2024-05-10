@@ -1,0 +1,41 @@
+.product-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image {
+    width: 100%;
+    height: auto;
+}
+
+.product-card__details {
+    padding: 20px;
+}
+
+.product-card__name {
+    margin-top: 0;
+}
+
+.product-card__category,
+.product-card__price {
+    color: #666;
+    margin: 5px 0;
+}
+
+.product-card__description {
+    margin-bottom: 10px;
+}
+
+.product-card__features {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-card__feature {
+    margin-bottom: 5px;
+    color: #333;
+}

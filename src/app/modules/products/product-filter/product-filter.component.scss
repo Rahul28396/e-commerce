@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.filter-category, .filter-price {
+    margin-bottom: 20px;
+}
+
+.filter-price input {
+    width: 100%;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

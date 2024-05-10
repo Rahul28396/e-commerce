@@ -1,9 +1,15 @@
 export class Category{
-    id: string;
-    title: string
+    id: number;
+    name: string;
+    image: string;
+    creationAt: string;
+    updatedAt: string;
 
-    constructor(id: string, title: string){
+    constructor(id: number, name: string, image: string, creationAt: string, updatedAt: string){
         this.id = id;
-        this.title = title;
+        this.name = name;
+        this.image = image;
+        this.creationAt = creationAt;
+        this.updatedAt = updatedAt;
     }
 }

@@ -14,7 +14,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

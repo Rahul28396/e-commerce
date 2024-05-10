@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CategoryService {
-  url = 'http://localhost:3000/categories';
+  url = 'https://api.escuelajs.co/api/v1/categories';
 
   constructor(private http: HttpClient) {}
 
