@@ -14,5 +14,10 @@ export class ProductService {
     const url = `https://api.escuelajs.co/api/v1/categories/${categoryId}/products`;
     return this.http.get<Product[]>(url);
   }
+
+  getProduct(productId: number): Observable<Product>{
+    const url = `https://api.escuelajs.co/api/v1/products/${productId}`;
+    return this.http.get<Product>(url);
+  }
   
 }

@@ -19,7 +19,7 @@
     <mat-toolbar class="header__category-section">
         <ul class="header__category-list">
             <li *ngFor="let category of categories">
-                <a [routerLink]="'/products/'+category.id">
+                <a [routerLink]="'/products/category/'+category.id">
                     {{category.name}}
                 </a>
             </li>

@@ -1,1 +1,36 @@
-<p>product-details works!</p>
+<div class="container" *ngIf="productDetails">
+    <div class="product-image">
+        <img [src]="productDetails.images | productImage" alt="Product Image">
+    </div>
+    <div class="product-details">
+        <h1>{{productDetails.title}}</h1>
+        <p class="price">
+            Price: {{productDetails.price | currency}}
+        </p>
+        <div class="description">
+            <p>{{productDetails.description}}</p>
+        </div>
+        <div class="ratings">
+            <p>Overall Rating: <span>4.5</span></p>
+        </div>
+        <div class="add-to-cart">
+            <button>Add to Cart</button>
+            <button>Buy Now</button>
+        </div>
+        <div class="shipping-info">
+            <p>Estimated Delivery: 3-5 business days</p>
+            <p>Shipping: Free</p>
+        </div>
+        <div class="social-sharing">
+            <p>Share:</p>
+            <!-- Social media icons -->
+        </div>
+        <div class="additional-info">
+            <h2>Additional Information</h2>
+            <ul>
+                <li>Warranty: 1 Year</li>
+                <li>Care Instructions: Hand wash only</li>
+            </ul>
+        </div>
+    </div>
+</div>
