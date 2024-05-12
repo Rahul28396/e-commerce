@@ -1,17 +1,25 @@
 <div class="product-card" *ngIf="productInfo">
     <img [src]="productInfo.images | productImage" alt="Smartphone" class="product-card__image">
     <div class="product-card__details">
-        <h2 class="product-card__name">
+        <h4 class="product-card__name">
             <a [routerLink]="'/products/'+ productInfo.id">
                 {{productInfo.title | productHeaderText: 20}}
             </a>
-        </h2>
-        <p class="product-card__category">Category: {{productInfo.category.name}}</p>
+        </h4>
         <p class="product-card__price">
-            Price: {{productInfo.price | currency}}
-            <span class="product-card__price--off">
-                ({{productInfo.price + 30 | currency}})
+            <span class="product-card__price--actual">
+                {{productInfo.price | currency}}
             </span>
-        </p>
+            <span>
+                {{productInfo.price + 30 | currency}}
+            </span>
+            <span class="product-card__price--off">
+                (30% Off)
+            </span>
+        </p> 
+    </div>
+    <div class="product-card__button-group">
+        <button>Add to cart</button>
+        <button>But Now</button>
     </div>
 </div>

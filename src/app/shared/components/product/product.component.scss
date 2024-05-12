@@ -1,5 +1,5 @@
 .product-card {
-    width: 300px;
+    width: 15rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
@@ -8,22 +8,35 @@
 
     &__image {
         width: 100%;
-        height: 20rem;
+        height: 15rem;
         object-position: center;
         object-fit: cover;
     }
 
     &__details {
-        padding: 20px;
+        padding: 10px 10px 0;
     }
 
     &__name {
-        margin-top: 0;
+        margin-bottom: 0;
+
+        a{
+            text-decoration: none;
+            color: #232121;
+            font-weight: 500;
+            font-size: medium;
+        }
+        
     }
 
     &__price {
         color: #666;
         margin: 5px 0;
+        font-size: small;
+
+        &--actual{
+            font-weight: 600;
+        }
 
         &--off{
             color: red;
@@ -43,6 +56,14 @@
     &__feature {
         margin-bottom: 5px;
         color: #333;
+    }
+
+    &__button-group{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
     }
 
 }
