@@ -20,3 +20,23 @@ body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
+
+.btn{
+    padding: 8px;
+    border: none;
+    border-radius: 2px;
+}
+
+.cart-btn{
+    background-color: crimson;
+    color: white;
+}
+
+
+.full-width{
+    width: 100%;
+}
+
+.strke-through{
+    text-decoration: line-through;
+}

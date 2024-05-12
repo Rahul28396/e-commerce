@@ -8,10 +8,10 @@
         </h4>
         <p class="product-card__price">
             <span class="product-card__price--actual">
-                {{productInfo.price | currency}}
+                {{productInfo.price | currency: 'Rs. '}}
             </span>
-            <span>
-                {{productInfo.price + 30 | currency}}
+            <span class="strke-through">
+                {{productInfo.price + 30 | currency: 'Rs. '}}
             </span>
             <span class="product-card__price--off">
                 (30% Off)
@@ -19,7 +19,7 @@
         </p> 
     </div>
     <div class="product-card__button-group">
-        <button>Add to cart</button>
-        <button>But Now</button>
+        <button class="btn cart-btn full-width">Add to cart</button>
+        <button class="btn full-width">Add to wishlist</button>
     </div>
 </div>
