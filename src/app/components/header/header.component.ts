@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/core/models/category.model';
+import { CartService } from 'src/app/core/services/cart.service';
 import { CategoryService } from 'src/app/core/services/category.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class HeaderComponent implements OnInit{
 
   categories: Category[] = [];
 
-  constructor(private categoryService: CategoryService){}
+  constructor(
+    private categoryService: CategoryService,
+    public cartService: CartService
+  ){}
 
   ngOnInit(): void {
     this.getCategoryList();

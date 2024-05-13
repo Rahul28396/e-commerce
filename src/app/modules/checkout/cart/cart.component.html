@@ -1,26 +1,32 @@
-<div class="cart">
+<div class="cart" *ngIf="this.cartService.cartItems.length; else emptyCart">
     <h1 class="cart-title">Shopping Cart</h1>
-    <div class="cart-item">
-        <img src="product1.jpg" alt="Product 1" class="cart-item-img">
-        <div class="cart-item-details">
-            <h3 class="cart-item-name">Product 1</h3>
-            <p class="cart-item-price">Price: $20</p>
-            <div class="quantity-container">
-                <button class="quantity-btn decrease">-</button>
-                <input type="text" value="2" class="quantity-input">
-                <button class="quantity-btn increase">+</button>
+
+    <section style="display: flex; gap: 16px;">
+        <section style="width: 70%;">
+            <div class="cart-action">
+                <div class="cart-action-title">
+                    <input type="checkbox" name="selected-item" id="selected-item">
+                    <label for="selected-item">3/3 Items selected</label>
+                </div>
+    
+                <div class="cart-action-button-group">
+                    <button class="cart-action-button" type="button" (click)="clearCart()">Clear cart</button>
+                    <button class="cart-action-button" type="button" (click)="moveToWishlist()">Move to wishlist</button>
+                </div>
             </div>
-            <p class="cart-item-subtotal">Subtotal: $40</p>
-            <button class="remove-btn">Remove</button>
-        </div>
-    </div>
-    <div class="cart-total">
-        <h2>Total: $55</h2>
-        <button class="checkout-btn">Proceed to Checkout</button>
-        <a href="#" class="continue-shopping">Continue Shopping</a>
-    </div>
-    <div class="promo-code">
-        <input type="text" placeholder="Enter promo code" class="promo-input">
-        <button class="apply-btn">Apply</button>
-    </div>
+    
+            <app-cart-item *ngFor="let item of this.cartService.cartItems" [cartItem]="item" />
+        </section>
+        <div class="horizontal-divider"></div>
+        <app-cart-price style="width: 25%;"/>
+    </section>
+
 </div>
+
+<ng-template #emptyCart>
+    <app-empty-state>
+        <button type="button" class="wish-list-button">
+            Add product from wishlist
+        </button>
+    </app-empty-state>
+</ng-template>

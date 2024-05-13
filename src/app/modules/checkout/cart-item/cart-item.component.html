@@ -1,1 +1,28 @@
-<p>cart-item works!</p>
+<div class="cart-item">
+    <div class="cart-item__container">
+        <img [src]="cartItem.image | productImage" [alt]="cartItem.title" class="cart-item__img">
+        <div class="cart-item__details">
+            <h3 class="cart-item__name">{{cartItem.title}}</h3>
+
+            <p class="cart-item__price">
+                <span class="cart-item__price--actual">
+                    {{cartItem.price * 2| currency: 'Rs. '}}
+                </span>
+                <span class="strke-through">
+                    {{cartItem.price * 2 + 30 | currency: 'Rs. '}}
+                </span>
+                <span class="cart-item__price--off">
+                    (30% Off)
+                </span>
+            </p>
+
+            <div class="cart-item__quantity-container">
+                <button class="cart-item__quantity-btn" type="button" (click)="updateCartItem('remove')">-</button>
+                <input class="cart-item__quantity-input" type="text" [(ngModel)]="cartItem.count">
+                <button class="cart-item__quantity-btn" type="button" (click)="updateCartItem('add')">+</button>
+            </div>
+        </div>
+    </div>
+    <mat-icon aria-hidden="false" aria-label="cart cancel button" fontIcon="close_small" (click)="removeCartItem()">
+    </mat-icon>
+</div>

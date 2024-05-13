@@ -7,7 +7,7 @@
         </span>
 
         <ul class="header__category-list">
-            <li *ngFor="let category of (categories | slice: 0 : 6)">
+            <li *ngFor="let category of (categories | slice: 0 : 5)">
                 <a [routerLink]="'/products/category/'+category.id">
                     {{category.name}}
                 </a>
@@ -34,7 +34,7 @@
         </span>
         <span>
             <a [routerLink]="'checkout/cart'">
-                <mat-icon aria-hidden="false" aria-label="User cart icon" fontIcon="shopping_bag" matBadge="15"
+                <mat-icon aria-hidden="false" aria-label="User cart icon" fontIcon="shopping_bag" [matBadge]="cartService.totalCartItems"
                     matBadgeColor="warn">
                 </mat-icon>
             </a>

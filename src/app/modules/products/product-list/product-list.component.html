@@ -1,9 +1,15 @@
 <div class="product-list__main-container">
 
     <app-product-filter />
-    
-    <div class="product-list__product-container" *ngIf="allProducts.length > 0">
-        <app-product *ngFor="let product of (allProducts | filterProduct: price)" [productInfo]="product"/>
+
+    <div class="product-list__product-container" *ngIf="allProducts.length > 0; else emptyProductList">
+        <app-product *ngFor="let product of (allProducts | filterProduct: price)" [productInfo]="product" />
     </div>
-    
+
+    <ng-template #emptyProductList>
+        <div class="product-list__product-container product-list__empty-state">
+            <app-empty-state></app-empty-state>
+        </div>
+    </ng-template>
+
 </div>

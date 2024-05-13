@@ -6,7 +6,6 @@ html, body { height: 100%; }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: rgb(236, 226, 226); 
 }
 
 .sub-container{
@@ -39,4 +38,8 @@ body {
 
 .strke-through{
     text-decoration: line-through;
+}
+
+.horizontal-divider{
+    border: 1px solid #80808042;
 }

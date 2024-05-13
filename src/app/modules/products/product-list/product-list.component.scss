@@ -12,6 +12,10 @@
         margin: auto;
         left: 22rem;
         position: absolute;
-        
+    }
+
+    &__empty-state{
+        justify-content: center;
+        align-items: center;
     }
 }
