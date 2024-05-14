@@ -1,1 +1,17 @@
-<p>wishlist works!</p>
+<section class="container" *ngIf="wishlistProducts.length > 0; else emptyProductList">
+    <h1 class="Wish-list__header">Wishlist ({{wishlistProducts.length}} items)</h1>
+
+    <div class="Wish-list__product-container">
+        <app-product 
+            *ngFor="let product of (wishlistProducts)" 
+            [productInfo]="product" 
+            [isWishListProduct]="true"
+            (moveToCart)="moveToBag($event)"
+            (cancelProduct)="removeItem($event)"
+        />
+    </div>    
+</section>
+
+<ng-template #emptyProductList>
+    <app-empty-state></app-empty-state>
+</ng-template>

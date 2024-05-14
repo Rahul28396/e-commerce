@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
@@ -8,14 +9,21 @@ import { CartService } from 'src/app/core/services/cart.service';
 })
 export class CartComponent {
 
-  constructor(public cartService: CartService) {
+  constructor(
+    public cartService: CartService,
+    private _router : Router
+  ) {
   }
 
-  clearCart(){
+  clearCart() {
     this.cartService.clearCart();
   }
 
-  moveToWishlist(){
+  moveToWishlist() {
     console.log('Moved to wishlist')
+  }
+
+  goToCart() {
+    this._router.navigateByUrl('/wishlist')
   }
 }

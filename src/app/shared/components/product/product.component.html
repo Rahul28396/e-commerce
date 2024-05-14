@@ -1,4 +1,7 @@
 <div class="product-card" *ngIf="productInfo">
+    <span class="product-card__cancel-icon" *ngIf="isWishListProduct" (click)="cancelProduct.emit(productInfo.id)">
+        <mat-icon fontIcon="cancel"></mat-icon>
+    </span>
     <img [src]="productInfo.images | productImage" alt="Smartphone" class="product-card__image">
     <div class="product-card__details">
         <h4 class="product-card__name">
@@ -8,18 +11,30 @@
         </h4>
         <p class="product-card__price">
             <span class="product-card__price--actual">
-                {{productInfo.price | currency: 'Rs. '}}
+                {{productInfo.price | currency: 'INR'}}
             </span>
             <span class="strke-through">
-                {{productInfo.price + 30 | currency: 'Rs. '}}
+                {{productInfo.price + 30 | currency: 'INR'}}
             </span>
             <span class="product-card__price--off">
                 (30% Off)
             </span>
-        </p> 
+        </p>
     </div>
     <div class="product-card__button-group">
-        <button class="btn cart-btn full-width" type="button" (click)="updateToCart('add')">Add to cart</button>
-        <button class="btn full-width">Add to wishlist</button>
+        <ng-container *ngIf="!isWishListProduct; else wishListButton">
+            <button class="btn cart-btn full-width" type="button" (click)="updateToCart('add')">Add to cart</button>
+            <button class="btn full-width" (click)="addToWishlist(productInfo.id)">Add to wishlist</button>
+        </ng-container>
+
+        <ng-template #wishListButton>
+            <button 
+                class="btn cart-btn full-width" 
+                type="button"
+                (click)="moveToCart.emit(productInfo.id)" 
+            >
+                {{productInfo.isOutOfStock ? 'Show similar products' : 'Move to bag' }}
+            </button>
+        </ng-template>
     </div>
 </div>

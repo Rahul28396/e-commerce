@@ -5,6 +5,7 @@ export class Product {
     price: number;
     description: string;
     images: string[];
+    isOutOfStock?: boolean;
 
     constructor(
         id: number,

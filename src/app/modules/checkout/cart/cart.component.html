@@ -25,7 +25,7 @@
 
 <ng-template #emptyCart>
     <app-empty-state>
-        <button type="button" class="wish-list-button">
+        <button type="button" class="wish-list-button" (click)="goToCart()">
             Add product from wishlist
         </button>
     </app-empty-state>

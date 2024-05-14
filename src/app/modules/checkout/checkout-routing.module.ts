@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
-import { AddressFormComponent } from './address-form/address-form.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AddressComponent } from './address/address.component';
+
 
 const routes: Routes = [
   {
@@ -10,11 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'address',
-    component: AddressFormComponent
+    component: AddressComponent
   },
   {
     path: 'payment',
-    component: AddressFormComponent
+    component: PaymentComponent
   }
 ];
 

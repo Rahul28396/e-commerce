@@ -1,0 +1,11 @@
+.Wish-list{
+    &__header{
+        margin: 15px 20px 0;
+        color: grey;
+        font-weight: 500;
+    }
+
+    &__product-container{
+        display: flex;
+    }
+}
