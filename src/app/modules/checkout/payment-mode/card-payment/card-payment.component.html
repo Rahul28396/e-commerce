@@ -1,0 +1,26 @@
+<form class="card-payment">
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Card Number</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Card Name</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <div style="display: flex; gap: 12px;">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Valid Thru (MM/YY)</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>CVV</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <app-pay-now />
+
+</form>

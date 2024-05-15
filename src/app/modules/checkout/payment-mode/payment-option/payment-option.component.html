@@ -1,0 +1,26 @@
+<div class="payment-types">
+    <div class="payment-option" *ngFor="let option of options">
+        <div class="payment-option__radio-button">
+            <input 
+                type="radio" 
+                name="payment-option" 
+                [id]="option.value" 
+                [value]="option.value"
+                [(ngModel)]="selectedOption"
+            >
+            <label [for]="option.value">{{option.displayName}}</label>
+        </div>
+        <div 
+            class="payment-option__container"
+            *ngIf="option.value === selectedOption"
+        >
+            <ng-container *ngComponentOutlet="
+                option.component.name;
+                inputs: option.component.inputs;
+                content: option.component.content
+                "
+            >
+            </ng-container>
+        </div>
+    </div>
+</div>

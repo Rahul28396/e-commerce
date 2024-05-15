@@ -3,20 +3,30 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AddressComponent } from './address/address.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 const routes: Routes = [
   {
-    path: 'cart',
-    component: CartComponent
-  },
-  {
-    path: 'address',
-    component: AddressComponent
-  },
-  {
-    path: 'payment',
-    component: PaymentComponent
+    path: '',
+    component: CheckoutComponent,
+    children: [
+      {
+        path: 'cart',
+        component: CartComponent,
+        title: 'CART'
+      },
+      {
+        path: 'address',
+        component: AddressComponent,
+        title: 'ADDRESS'
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+        title: 'PAYMENT'
+      }
+    ]
   }
 ];
 

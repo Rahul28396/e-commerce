@@ -8,7 +8,6 @@ export class FilterProductPipe implements PipeTransform {
 
   transform(products: Product[] , ...args: unknown[]): Product[] {
     const price = 400;
-    console.log(args)
     return products.filter(product => product.price < (args[0] as number));
   }
 

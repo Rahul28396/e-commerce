@@ -1,1 +1,15 @@
-<p>checkout works!</p>
+<div class="checkout">
+    <section class="checkout__container">
+        <section [ngClass]="{'checkout__details': !isEmptyState, 'full-width': isEmptyState}">
+            <router-outlet></router-outlet>
+        </section>
+
+        <ng-container *ngIf="!isEmptyState">
+            <div class="horizontal-divider"></div>
+            <app-cart-price 
+                class="checkout__price-details"
+                [buttonConfig]="buttonConfig" 
+            />
+        </ng-container>
+    </section>
+</div>

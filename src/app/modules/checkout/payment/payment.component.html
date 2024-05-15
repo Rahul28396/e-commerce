@@ -1,1 +1,32 @@
-<p>payment works!</p>
+<div class="payment">
+    <h3 class="payment__header">Choose Payment Mode</h3>
+    <section class="payment__body">
+        <ul class="payment__sidebar">
+            <li 
+                *ngFor="let option of paymentOptions"
+                [class]="{ 
+                    'payment__sidebar-option': true, 
+                    'payment__sidebar-option-selected': selectedOption.name === option.name
+                }"
+                (click)="selectOption(option)"
+            >
+                <mat-icon [fontIcon]="option.icon"></mat-icon>
+                <span>
+                    {{option.name}}
+                </span>
+            </li>
+        </ul>
+        <div class="payment__container">
+            <h3 class="payment__header">{{selectedOption.header}}</h3>
+            <div class="payment__option-container">
+                <ng-container [ngSwitch]="selectedOption.type">
+                    <app-recommended-payment *ngSwitchCase="paymentOptionTypes.recommended"/>
+                    <app-cash-on-delivery *ngSwitchCase="paymentOptionTypes.cash"/>
+                    <app-upi-payment *ngSwitchCase="paymentOptionTypes.upi"/>
+                    <app-card-payment *ngSwitchCase="paymentOptionTypes.card"/>
+                    <app-recommended-payment *ngSwitchDefault/>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+</div>

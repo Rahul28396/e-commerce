@@ -1,161 +1,32 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.cart {
-    max-width: 70%;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-}
-
-.cart-title {
-    text-align: center;
-    font-weight: 600;
-    color: #737373fc;
-}
-
-.cart-action{
-    display: flex;
-}
-
-.cart-item {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.cart-item-img {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-    border-radius: 5px;
-}
-
-.cart-item-details {
-    flex-grow: 1;
-}
-
-.cart-item-name {
-    margin: 0;
-}
-
-.quantity-container {
-    display: flex;
-    align-items: center;
-}
-
-.quantity-btn {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.quantity-input {
-    width: 50px;
-    text-align: center;
-}
-
-.cart-item-subtotal {
-    margin: 5px 0;
-}
-
-.remove-btn {
-    padding: 5px 10px;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.remove-btn:hover {
-    background-color: #c82333;
-}
-
-.cart-total {
-    text-align: right;
-}
-
-.checkout-btn {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.checkout-btn:hover {
-    background-color: #218838;
-}
-
-.continue-shopping {
-    color: #007bff;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-.promo-code {
-    margin-top: 20px;
-}
-
-.promo-input {
-    padding: 8px;
-    border-radius: 5px 0 0 5px;
-    border: 1px solid #ced4da;
-    outline: none;
-}
-
-.apply-btn {
-    padding: 8px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.apply-btn:hover {
-    background-color: #0056b3;
-}
-
-.cart-action-title{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: medium;
-    font-weight: 500;
-    color: #737373fc;
-}
-
 .cart-action{
     display: flex;
     justify-content: space-between;
     margin: 8px;
-}
 
-.cart-action-button-group{
-    display: flex;
-    gap: 16px;
-}
+    &__title{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: medium;
+        font-weight: 500;
+        color: #737373fc;
+    }
 
-.cart-action-button{
-    border: none;
-    background: white;
-    text-transform: uppercase;
-    padding: 8px;
-    font-weight: 600;
-    color: grey;
-    font-size: smaller;
+    &__button{
+        border: none;
+        background: white;
+        text-transform: uppercase;
+        padding: 8px;
+        font-weight: 600;
+        color: grey;
+        font-size: smaller;
+
+        &-group{
+            display: flex;
+            gap: 16px;
+        }
+    }
+
 }
 
 .wish-list-button{

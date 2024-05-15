@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
-import { WishlistComponent } from './wishlist/wishlist.component';
 import { ManageAddressComponent } from './manage-address/manage-address.component';
 import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -11,10 +10,6 @@ const routes: Routes = [
   {
     path: '',
     component: UserComponent
-  },
-  {
-    path: 'wishlist',
-    component: WishlistComponent
   },
   {
     path: 'address',

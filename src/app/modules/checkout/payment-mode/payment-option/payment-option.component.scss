@@ -1,0 +1,16 @@
+.payment-option{
+    padding: 16px 0;
+
+    input[type='radio']{
+        margin: 0;
+    }
+
+    &__radio-button{
+        display: flex;
+        gap: 16px;
+    }
+
+    &__container{
+        margin: 16px 4px 0;
+    }
+}

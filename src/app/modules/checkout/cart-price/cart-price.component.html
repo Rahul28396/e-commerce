@@ -32,5 +32,6 @@
         </span> 
     </h4>
 
-    <button class="btn full-width cart-btn">Place Order</button>
+
+    <button *ngIf="buttonConfig.name" class="btn full-width cart-btn" [routerLink]="buttonConfig.url">{{buttonConfig.name}}</button>
 </section>

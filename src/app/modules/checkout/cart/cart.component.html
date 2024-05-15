@@ -1,27 +1,17 @@
-<div class="cart" *ngIf="this.cartService.cartItems.length; else emptyCart">
-    <h1 class="cart-title">Shopping Cart</h1>
+<ng-container *ngIf="cartService.cartItems.length; else emptyCart">
+    <div class="cart-action">
+        <div class="cart-action__title">
+            <label>Cart Items ({{cartService.cartItems.length}})</label>
+        </div>
 
-    <section style="display: flex; gap: 16px;">
-        <section style="width: 70%;">
-            <div class="cart-action">
-                <div class="cart-action-title">
-                    <input type="checkbox" name="selected-item" id="selected-item">
-                    <label for="selected-item">3/3 Items selected</label>
-                </div>
-    
-                <div class="cart-action-button-group">
-                    <button class="cart-action-button" type="button" (click)="clearCart()">Clear cart</button>
-                    <button class="cart-action-button" type="button" (click)="moveToWishlist()">Move to wishlist</button>
-                </div>
-            </div>
-    
-            <app-cart-item *ngFor="let item of this.cartService.cartItems" [cartItem]="item" />
-        </section>
-        <div class="horizontal-divider"></div>
-        <app-cart-price style="width: 25%;"/>
-    </section>
+        <div class="cart-action__button-group">
+            <button class="cart-action__button" type="button" (click)="clearCart()">Clear cart</button>
+            <button class="cart-action__button" type="button" (click)="moveToWishlist()">Move to wishlist</button>
+        </div>
+    </div>
 
-</div>
+    <app-cart-item *ngFor="let item of cartService.cartItems" [cartItem]="item" />
+</ng-container>
 
 <ng-template #emptyCart>
     <app-empty-state>

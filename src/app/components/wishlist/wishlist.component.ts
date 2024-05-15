@@ -27,7 +27,6 @@ export class WishlistComponent implements OnInit{
 
   getWishList(){
     this.wishlistProducts = this._wishlistservice.getWishlistProducts();
-    console.log(this.wishlistProducts)
   }
 
   moveToBag(productId: number){

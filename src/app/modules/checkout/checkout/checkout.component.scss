@@ -1,0 +1,20 @@
+.checkout{
+    max-width: 70%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+
+    &__container{
+        display: flex;
+        gap: 16px;
+    }
+
+    &__details{
+        width: 70%;
+        margin-right: 2rem;
+    }
+
+    &__price-details{
+        width: 25%;
+    }
+}
