@@ -1,0 +1,22 @@
+.address-form{
+    &__section-title{
+        font-weight: 500;
+        font-size: smaller;
+        text-transform:uppercase;
+        color: rgba(0, 0, 0);
+
+    }
+
+    &__input-field{
+        display: block;
+    }
+
+    &__two-input{
+        display: flex; 
+        gap: 8px;
+    }
+}
+
+.mb-12{
+    margin-bottom: 12px;
+}

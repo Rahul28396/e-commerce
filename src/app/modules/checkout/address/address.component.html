@@ -1,64 +1,43 @@
-<div class="address__header">
-    <p class="address__header-title">Select Delivery Address</p>
+<ng-container *ngIf="addressList.length; else emptyAddress">
+    <div class="address__header">
+        <p class="address__header-title">Select Delivery Address</p>
 
-    <button class="address__button" type="button">
-        Add New Address
-    </button>
-</div>
-<div class="delivery-address">
-    <section>
-        <h3 class="delivery-address__header">Default Address</h3>
-        <div class="delivery-address__info">
-            <input type="radio" class="delivery-address__checkbox" checked>
-            <div>
-                <h4>Rahul Mondal</h4>
-                <address>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                    <p>adipisicing elit. Voluptas maxime illum nisi.</p>
-                </address>
-                <p>Mob: 6294469294</p>
-                <div>
-                    <button type="button">Remove</button>
-                    <button type="button">Edit</button>
-                </div>
-            </div>
-        </div>
-    </section>
+        <button class="address__button" mat-button type="button" (click)="openDialog()">
+            Add New Address
+        </button>
+    </div>
+    <div class="delivery-address">
 
-    <section>
-        <h3>Other Address</h3>
-        <div class="delivery-address__info">
-            <input type="radio" class="delivery-address__checkbox">
-            <div>
-                <h4>Rahul Mondal</h4>
-                <address>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                    <p>adipisicing elit. Voluptas maxime illum nisi.</p>
-                </address>
-                <p>Mob: 6294469294</p>
-            </div>
-        </div>
-        <div class="delivery-address__info">
-            <input type="radio" class="delivery-address__checkbox">
-            <div>
-                <h4>Rahul Mondal</h4>
-                <address>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                    <p>adipisicing elit. Voluptas maxime illum nisi.</p>
-                </address>
-                <p>Mob: 6294469294</p>
-            </div>
-        </div>
-        <div class="delivery-address__info">
-            <input type="radio" class="delivery-address__checkbox">
-            <div>
-                <h4>Rahul Mondal</h4>
-                <address>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                    <p>adipisicing elit. Voluptas maxime illum nisi.</p>
-                </address>
-                <p>Mob: 6294469294</p>
-            </div>
-        </div>
-    </section>
-</div>
+        <section *ngIf="(addressList | addressFilter: true).length">
+            <h3 class="delivery-address__header">Default Address</h3>
+            <app-address-details 
+                *ngFor="let address of (addressList | addressFilter: true)"
+                [isChecked]="selectedAddress?.id === address.id" 
+                [addressDetails]="address" 
+                (removeAddress)="removeAddress($event)"
+                (editAddress)="editAddress($event)" 
+                (onChange)="selectAddress($event)" 
+            />
+        </section>
+
+        <section *ngIf="(addressList | addressFilter: false).length">
+            <h3 class="delivery-address__header">Other Address</h3>
+            <app-address-details 
+                *ngFor="let address of (addressList | addressFilter: false)" 
+                [isChecked]="selectedAddress?.id === address.id" 
+                [addressDetails]="address"
+                (onChange)="selectAddress($event)"
+                (editAddress)="editAddress($event)" 
+                (onChange)="selectAddress($event)" 
+            />
+        </section>
+    </div>
+</ng-container>
+
+<ng-template #emptyAddress>
+    <app-empty-state>
+        <button class="address__button" mat-button type="button" (click)="openDialog()">
+            Add New Address
+        </button>
+    </app-empty-state>
+</ng-template>

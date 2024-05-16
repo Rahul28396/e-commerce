@@ -6,8 +6,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartComponent } from './cart/cart.component';
 import { PipeModule } from 'src/app/shared/pipes/pipe.module';
-import { MatIcon } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedComponentModule } from 'src/app/shared/components/shared-component.module';
 import { CartPriceComponent } from './cart-price/cart-price.component';
 import { AddressComponent } from './address/address.component';
@@ -19,6 +18,8 @@ import { UpiPaymentComponent } from './payment-mode/upi-payment/upi-payment.comp
 import { RecommendedPaymentComponent } from './payment-mode/recommended-payment/recommended-payment.component';
 import { PayNowComponent } from './payment-mode/pay-now/pay-now.component';
 import { PaymentOptionComponent } from './payment-mode/payment-option/payment-option.component';
+import { AddressFormComponent } from './address-form/address-form.component';
+import { AddressDetailsComponent } from './address-details/address-details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { PaymentOptionComponent } from './payment-mode/payment-option/payment-op
     UpiPaymentComponent,
     RecommendedPaymentComponent,
     PayNowComponent,
-    PaymentOptionComponent
+    PaymentOptionComponent,
+    AddressFormComponent,
+    AddressDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,7 @@ import { PaymentOptionComponent } from './payment-mode/payment-option/payment-op
     CommonMaterialModule,
     PipeModule,
     FormsModule,
-    MatIcon
+    ReactiveFormsModule,
   ]
 })
 export class CheckoutModule { }

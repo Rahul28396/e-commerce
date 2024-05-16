@@ -19,10 +19,10 @@ export class LocalStorageService {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
-  removeItem<T extends { id: number}>(cartId: number, key: string){
+  removeItem<T extends { id: number}>(id: number, key: string){
     let items = this.getItem<T[]>(key);
     if(Array.isArray(items)){
-      items = items.filter( item => item.id !== cartId);
+      items = items.filter( item => item.id !== id);
       this.addItem<T[]>(key, items);
     }
   }
