@@ -1,10 +1,14 @@
 .address-form{
+    &__title{
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__section-title{
         font-weight: 500;
         font-size: smaller;
         text-transform:uppercase;
         color: rgba(0, 0, 0);
-
     }
 
     &__input-field{

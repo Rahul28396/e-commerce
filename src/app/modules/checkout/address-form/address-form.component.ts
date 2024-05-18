@@ -1,8 +1,9 @@
 import { Component, Inject, inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Address } from 'src/app/core/models/address.model';
 import { AddressService } from 'src/app/core/services/address.service';
+import { phoneNumberValidator, pincodeValidator } from 'src/app/core/validators/validator';
 
 @Component({
   selector: 'app-address-form',
@@ -19,9 +20,9 @@ export class AddressFormComponent {
   }
 
   addressform = new FormGroup({
-    name: new FormControl<String>(this.dialogData?.name ?? '', [Validators.required]),
-    phone: new FormControl<number>(this.dialogData?.phone ?? 0, [Validators.required]),
-    pincode: new FormControl<number>(this.dialogData?.pincode ?? 0, [Validators.required]),
+    name: new FormControl<String>(this.dialogData?.name ?? '', [Validators.required, Validators.minLength(4)]),
+    phone: new FormControl<number>(this.dialogData?.phone ?? 0, [Validators.required, phoneNumberValidator()]),
+    pincode: new FormControl<number>(this.dialogData?.pincode ?? 0, [Validators.required, pincodeValidator()]),
     area: new FormControl<string>(this.dialogData?.area ?? '', [Validators.required]),
     locality: new FormControl<string>(this.dialogData?.locality ?? '', [Validators.required]),
     district: new FormControl<string>(this.dialogData?.district ?? '', [Validators.required]),
@@ -34,6 +35,10 @@ export class AddressFormComponent {
 
   get addressType(): string {
     return typeof this.addressform.value.type === 'string' ? this.addressform.value.type : 'Home';
+  }
+
+  formControl(value: string): AbstractControl<String | null, String | null> | null {
+    return this.addressform.get(value);
   }
 
   saveAddress() {

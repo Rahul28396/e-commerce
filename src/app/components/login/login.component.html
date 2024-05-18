@@ -1,1 +1,45 @@
-<p>login works!</p>
+<section class="sign-up">
+    <div class="sign-up__conatainer">
+        <h2>Create an account</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="signup()" class="sign-up__form">
+
+            <mat-form-field appearance="outline" class="sign-up__form--input">
+                <mat-label>Email</mat-label>
+                <input matInput required formControlName="email">
+                @if (formControl('email')?.invalid && formControl('email')?.errors?.['required']) {
+                <mat-error>Please enter a value.</mat-error>
+                }@else if (formControl('email')?.errors?.['email']) {
+                <mat-error>
+                    Please enter a valid email address.
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="sign-up__form--input">
+                <mat-label>Password</mat-label>
+                <input matInput required formControlName="password" type="password">
+                @if (formControl('password')?.invalid && formControl('password')?.errors?.['required']) {
+                <mat-error>Please enter a value</mat-error>
+                }@else if (formControl('password')?.errors?.['invalidPassword']) {
+                <mat-error>
+                    Please enter valid password format
+                </mat-error>
+                }
+            </mat-form-field>
+
+            @if (errorMessage) {
+            <mat-error>
+                {{errorMessage}}
+            </mat-error>
+            }
+
+            <button type="submit" [disabled]="!loginForm.valid" class="btn cart-btn full-width sign-up__form--button">
+                Login
+            </button>
+        </form>
+        <div class="sign-up__footer">
+            <p>Don't have an account ? <a routerLink="/signup">Create account here</a></p>
+            <p>Forget your password ? <a routerLink="/forgot-password">Reset password here</a></p>
+        </div>
+    </div>
+</section>

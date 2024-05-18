@@ -1,0 +1,37 @@
+.sign-up {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 90vh;
+
+    &__conatainer {
+        width: 50%;
+        max-width: 320px;
+        background: #e1bfc4;
+        padding: 24px;
+        border-radius: 4px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 24px;
+        border-radius: 4px;
+
+        &--input{
+            background-color: white;
+        }
+
+        &--button{
+            padding: 16px;
+            font-size: medium;
+            font-weight: 600;
+        }
+    }
+
+    &__footer{
+        margin: 12px 0;
+        text-align: center;
+    }
+}

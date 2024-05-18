@@ -4,86 +4,105 @@
     <mat-dialog-content class="mat-typography">
       <section>
         <h3 class="address-form__section-title">Contact Details</h3>
-  
+
         <mat-form-field appearance="outline" class="address-form__input-field">
           <mat-label>Name</mat-label>
           <input matInput required formControlName="name">
+          @if (formControl('name')?.invalid && formControl('name')?.errors?.['required']) {
+          <mat-error>Please enter a value</mat-error>
+          }@else if (formControl('name')?.errors?.['minlength']) {
+          <mat-error>
+            Name must be at least 4 characters long.
+          </mat-error>
+          }
         </mat-form-field>
-  
+
         <mat-form-field appearance="outline" class="address-form__input-field">
           <mat-label>Contact No.</mat-label>
           <input matInput required formControlName="phone">
+          @if (formControl('phone')?.invalid && formControl('phone')?.errors?.['required']) {
+          <mat-error>Please enter a value</mat-error>
+          }@else if (formControl('phone')?.errors?.['phoneNumberType']) {
+          <mat-error>Please enter number value</mat-error>
+          }@else if (formControl('phone')?.errors?.['phoneNumberLength']) {
+          <mat-error>Please enter 10 digit value</mat-error>
+          }
         </mat-form-field>
       </section>
-  
+
       <section>
         <h3 class="address-form__section-title">Address</h3>
         <mat-form-field appearance="outline" class="address-form__input-field">
           <mat-label>Pincode</mat-label>
-          <input matInput required formControlName="pincode"/>
+          <input matInput required formControlName="pincode" />
+          @if (formControl('pincode')?.errors?.['required']) {
+          <mat-error>Please enter a value</mat-error>
+          }@else if (formControl('pincode')?.errors?.['pincodeLength']) {
+          <mat-error>Please enter 6 digit pincode</mat-error>
+          }@else if (formControl('pincode')?.errors?.['pincodeType']) {
+          <mat-error>Please enter number value</mat-error>
+          }
         </mat-form-field>
-  
+
         <mat-form-field appearance="outline" class="address-form__input-field">
           <mat-label>Address (House No., Building, Area)</mat-label>
           <input matInput required formControlName="area">
+          @if (formControl('area')?.errors?.['required']) {
+          <mat-error>Please enter a value</mat-error>
+          }
         </mat-form-field>
-  
+
         <mat-form-field appearance="outline" class="address-form__input-field">
           <mat-label>Locality/Town Area</mat-label>
           <input matInput required formControlName="locality">
+          @if (formControl('locality')?.errors?.['required']) {
+          <mat-error>Please enter a value</mat-error>
+          }
         </mat-form-field>
-  
+
         <div class="address-form__two-input">
           <mat-form-field appearance="outline">
             <mat-label>City/District</mat-label>
             <input matInput required formControlName="district">
+            @if (formControl('district')?.errors?.['required']) {
+            <mat-error>Please enter a value</mat-error>
+            }
           </mat-form-field>
-  
+
           <mat-form-field appearance="outline">
             <mat-label>State</mat-label>
             <input matInput required formControlName="state">
+            @if (formControl('state')?.errors?.['required']) {
+            <mat-error>Please enter a value</mat-error>
+            }
           </mat-form-field>
         </div>
       </section>
-  
+
       <section>
         <h3 class="address-form__section-title">Save Address as</h3>
-  
+
         <section class="address-form__two-input mb-12">
-          <button 
-            type="button" 
-            mat-raised-button 
-            [color]="addressType == 'Home' ? 'warn' :''"
-            (click)="changeAddressType()"
-          >
+          <button type="button" mat-raised-button [color]="addressType == 'Home' ? 'warn' :''"
+            (click)="changeAddressType()">
             Home
           </button>
-          <button 
-            type="button" 
-            mat-raised-button 
-            [color]="addressType == 'Work' ? 'warn' :''"
-            (click)="changeAddressType()"
-          >
+          <button type="button" mat-raised-button [color]="addressType == 'Work' ? 'warn' :''"
+            (click)="changeAddressType()">
             Work
           </button>
         </section>
-  
+
         <section class="address-form__two-input mb-12">
           <input type="checkbox" name="defaultCheck" id="default-check" formControlName="isDefault">
           <label for="default-check">Mark this address as default</label>
         </section>
-  
+
       </section>
     </mat-dialog-content>
     <mat-dialog-actions align="center">
-      <button 
-        type="button" 
-        class="cart-btn full-width" 
-        mat-button
-        cdkFocusInitial
-        [disabled]="!addressform.valid"
-        (click)="saveAddress()"
-      >
+      <button type="button" class="cart-btn full-width" mat-button [disabled]="!addressform.valid"
+        (click)="saveAddress()">
         SaveAddress
       </button>
     </mat-dialog-actions>

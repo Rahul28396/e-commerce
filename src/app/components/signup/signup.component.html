@@ -1,1 +1,66 @@
-<p>signup works!</p>
+<section class="sign-up">
+    <div class="sign-up__conatainer">
+        <h2>Create an account</h2>
+        <form [formGroup]="signUpForm" (ngSubmit)="signup()" class="sign-up__form">
+            <mat-form-field appearance="outline" class="sign-up__form--input">
+                <mat-label>Name</mat-label>
+                <input matInput required formControlName="name">
+                @if (formControl('name')?.invalid && formControl('name')?.errors?.['required']) {
+                <mat-error>Please enter a value.</mat-error>
+                }@else if (formControl('name')?.errors?.['minlength']) {
+                <mat-error>
+                    Name must be at least 4 characters long.
+                </mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="sign-up__form--input">
+                <mat-label>Email</mat-label>
+                <input matInput required formControlName="email">
+                @if (formControl('email')?.invalid && formControl('email')?.errors?.['required']) {
+                <mat-error>Please enter a value.</mat-error>
+                }@else if (formControl('email')?.errors?.['email']) {
+                <mat-error>
+                    Please enter a valid email address.
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="sign-up__form--input">
+                <mat-label>Password</mat-label>
+                <input matInput required formControlName="password" type="password">
+                @if (formControl('password')?.invalid && formControl('password')?.errors?.['required']) {
+                <mat-error>Please enter a value</mat-error>
+                }@else if (formControl('password')?.errors?.['invalidPassword']) {
+                <mat-error>
+                    Please enter valid password format
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="sign-up__form--input">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput required formControlName="confirmPassword" type="password">
+                @if (formControl('confirmPassword')?.invalid && formControl('confirmPassword')?.errors?.['required']) {
+                <mat-error>Please enter a value</mat-error>
+                }
+            </mat-form-field>
+            @if (signUpForm.errors?.['invalidConfirmPassword']) {
+            <mat-error>
+                Please enter same value as password.
+            </mat-error>
+            }
+
+            @if (errorMessage) {
+            <mat-error>
+                {{errorMessage}}
+            </mat-error>
+            }
+            <button type="submit" [disabled]="!signUpForm.valid" class="btn cart-btn full-width sign-up__form--button">
+                Create account
+            </button>
+        </form>
+        <div class="sign-up__footer">
+            <p>Already have an account ? <a routerLink="/login">Please login here</a></p>
+        </div>
+    </div>
+</section>
