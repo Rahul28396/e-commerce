@@ -5,6 +5,7 @@ import { ManageAddressComponent } from './manage-address/manage-address.componen
 import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { ManageUpiComponent } from './manage-upi/manage-upi.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
     component: UserComponent
   },
   {
-    path: 'address',
+    path: 'addresess',
     component: ManageAddressComponent
   },
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent
+  },
+  {
+    path: 'vpa',
+    component: ManageUpiComponent
   },
   {
     path: 'profile-details',

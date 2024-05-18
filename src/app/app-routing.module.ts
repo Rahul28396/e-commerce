@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { authGuard } from './core/route-guards/auth.guard';
+import { loginGuard } from './core/route-guards/login.guard';
 
 const routes: Routes = [
   {
@@ -21,29 +23,34 @@ const routes: Routes = [
     title: 'CHECKOUT | ECart'
   },
   {
-    path: 'user',
+    path: 'profile',
     loadChildren: () => import('./modules/user/user.module').then(m=>m.UserModule),
-    title: 'PROFILE | ECart'
+    title: 'PROFILE | ECart',
+    canActivate: [authGuard]
   },
   {
     path: 'wishlist',
     loadComponent: () => import('./components/wishlist/wishlist.component').then(c=>c.WishlistComponent),
-    title: 'WISHLIST | ECart'
+    title: 'WISHLIST | ECart',
+    canActivate:  [authGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
-    title: 'LOGIN | ECart'
+    title: 'LOGIN | ECart',
+    canActivate:  [loginGuard]
   },
   {
     path: 'signup',
     component: SignupComponent,
-    title: 'SIGNUP | ECart'
+    title: 'SIGNUP | ECart',
+    canActivate:  [loginGuard]
   },
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
-    title: 'FORGOT PASSWORD | ECart'
+    title: 'FORGOT PASSWORD | ECart',
+    canActivate:  [loginGuard]
   },
   {
     path: '**',

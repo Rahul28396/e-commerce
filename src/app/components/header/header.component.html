@@ -23,9 +23,44 @@
         </div>
 
         <span>
-            <a [routerLink]="'user'">
+            <a [matMenuTriggerFor]="afterMenu">
                 <mat-icon aria-hidden="false" aria-label="User profile icon" fontIcon="person"></mat-icon>
             </a>
+            <mat-menu #afterMenu="matMenu" xPosition="after">
+                <section class="header__menu">
+                    <section>
+                        <h3 class="header__menu--header">Welcome {{username}}</h3>
+                        @if(!username){
+                            <p class="header__menu--info">To access and account manage orders</p>
+                            <a class="header__menu--button" routerLink="login">Login/Sign up</a>
+                        }
+                    </section>
+                    <ul>
+                        @if(username){
+                            <li (click)="goToPage('profile-details')">
+                                <a>Profile</a>
+                            </li>
+                        }
+                        <li (click)="goToPage('orders')">
+                            <a>Orders</a>
+                        </li>
+                        <li (click)="goToPage('cards')">
+                            <a>Saved Card</a>
+                        </li>
+                        <li (click)="goToPage('vpa')">
+                            <a>Saved VPA</a>
+                        </li>
+                        <li (click)="goToPage('addresess')">
+                            <a>Saved Addresses</a>
+                        </li>
+                        @if(username){
+                            <li>
+                                <a (click)="logout()">Logout</a>
+                            </li>
+                        }
+                    </ul>
+                </section>
+            </mat-menu>
         </span>
         <span>
             <a [routerLink]="'wishlist'">
@@ -34,8 +69,8 @@
         </span>
         <span>
             <a [routerLink]="'checkout/cart'">
-                <mat-icon aria-hidden="false" aria-label="User cart icon" fontIcon="shopping_bag" [matBadge]="cartService.totalCartItems"
-                    matBadgeColor="warn">
+                <mat-icon aria-hidden="false" aria-label="User cart icon" fontIcon="shopping_bag"
+                    [matBadge]="cartService.totalCartItems" matBadgeColor="warn">
                 </mat-icon>
             </a>
         </span>
