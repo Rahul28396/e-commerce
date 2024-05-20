@@ -29,14 +29,14 @@
             <mat-menu #afterMenu="matMenu" xPosition="after">
                 <section class="header__menu">
                     <section>
-                        <h3 class="header__menu--header">Welcome {{username}}</h3>
-                        @if(!username){
+                        <h3 class="header__menu--header">Welcome {{userName}}</h3>
+                        @if(!userName){
                             <p class="header__menu--info">To access and account manage orders</p>
                             <a class="header__menu--button" routerLink="login">Login/Sign up</a>
                         }
                     </section>
                     <ul>
-                        @if(username){
+                        @if(userName){
                             <li (click)="goToPage('profile-details')">
                                 <a>Profile</a>
                             </li>
@@ -53,7 +53,7 @@
                         <li (click)="goToPage('addresess')">
                             <a>Saved Addresses</a>
                         </li>
-                        @if(username){
+                        @if(userName){
                             <li>
                                 <a (click)="logout()">Logout</a>
                             </li>
@@ -69,8 +69,9 @@
         </span>
         <span>
             <a [routerLink]="'checkout/cart'">
+                
                 <mat-icon aria-hidden="false" aria-label="User cart icon" fontIcon="shopping_bag"
-                    [matBadge]="cartService.totalCartItems" matBadgeColor="warn">
+                    [matBadge]="userName ? cartService.totalCartItems : 0" matBadgeColor="warn">
                 </mat-icon>
             </a>
         </span>

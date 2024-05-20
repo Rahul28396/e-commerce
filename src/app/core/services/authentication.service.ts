@@ -12,7 +12,7 @@ export class AuthenticationService {
   private storageKey = 'TOKEN';
   private httpService = inject(HttpClient);
   private localStoageService = inject(LocalStorageService);
-  loggedInUser!: User;
+  loggedInUser!: User | null;
 
   isUserLoggedIn(){
     return this.localStoageService.getItem<Partial<{ access_token: string}>>(this.storageKey);
@@ -43,5 +43,6 @@ export class AuthenticationService {
 
   logout() {
     this.localStoageService.clearStorage(this.storageKey);
+    this.loggedInUser = null;
   }
 }

@@ -14,19 +14,21 @@ import { CategoryService } from 'src/app/core/services/category.service';
 export class HeaderComponent implements OnInit{
 
   categories: Category[] = [];
-  username: string = '';
 
   constructor(
     private categoryService: CategoryService,
-    private authService: AuthenticationService,
+    public authService: AuthenticationService,
     private router: Router,
     public cartService: CartService,
     
   ){}
 
+  get userName() {
+    return this.authService.loggedInUser?.['name'] ? this.authService.loggedInUser['name'] :'';
+  }
+
   ngOnInit(): void {
     this.getCategoryList();
-    this.username = this.authService.loggedInUser['name'];
   }
 
   private getCategoryList(){
@@ -44,7 +46,6 @@ export class HeaderComponent implements OnInit{
 
   logout(){
     this.authService.logout();
-    this.username = '';
   }
 
 }
