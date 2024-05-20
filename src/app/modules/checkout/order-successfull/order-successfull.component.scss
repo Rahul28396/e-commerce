@@ -1,0 +1,25 @@
+.empty-state{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: darkgrey;
+
+    &__icon{
+        width: 10rem;
+        height: 10rem;
+        font-size: 10rem;
+        color: rgb(19, 191, 13);
+    }
+
+    &__title{
+        font-size: x-large;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    &__subtitle{
+        font-size: medium;
+    }
+}

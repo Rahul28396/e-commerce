@@ -5,6 +5,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { authGuard } from './core/route-guards/auth.guard';
 import { loginGuard } from './core/route-guards/login.guard';
+import { checkoutPageGuard } from './core/route-guards/checkout-page.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +21,9 @@ const routes: Routes = [
   {
     path: 'checkout',
     loadChildren: () => import('./modules/checkout/checkout.module').then(m=>m.CheckoutModule),
-    title: 'CHECKOUT | ECart'
+    title: 'CHECKOUT | ECart',
+    canActivate: [authGuard],
+    canActivateChild: [checkoutPageGuard]
   },
   {
     path: 'profile',

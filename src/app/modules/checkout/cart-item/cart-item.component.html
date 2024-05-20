@@ -6,10 +6,10 @@
 
             <p class="cart-item__price">
                 <span class="cart-item__price--actual">
-                    {{cartItem.price * 2| currency: 'Rs. '}}
+                    {{cartItem.price| currency: 'Rs. '}}
                 </span>
                 <span class="strke-through">
-                    {{cartItem.price * 2 + 30 | currency: 'Rs. '}}
+                    {{cartItem.price + 30 | currency: 'Rs. '}}
                 </span>
                 <span class="cart-item__price--off">
                     (30% Off)

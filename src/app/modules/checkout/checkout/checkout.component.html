@@ -1,15 +1,17 @@
 <div class="checkout">
-    <section class="checkout__container">
+    <section class="checkout__container" *ngIf="!isOrderDone; else orderSucessfull">
         <section [ngClass]="{'checkout__details': !isEmptyState, 'full-width': isEmptyState}">
             <router-outlet></router-outlet>
         </section>
 
         <ng-container *ngIf="!isEmptyState">
             <div class="horizontal-divider"></div>
-            <app-cart-price 
-                class="checkout__price-details"
-                [buttonConfig]="buttonConfig" 
-            />
+            <app-cart-price class="checkout__price-details" [buttonConfig]="buttonConfig" [priceDetails]="cartPrice" />
         </ng-container>
     </section>
+
+    <ng-template #orderSucessfull>
+        <app-order-successfull></app-order-successfull>
+    </ng-template>
+
 </div>

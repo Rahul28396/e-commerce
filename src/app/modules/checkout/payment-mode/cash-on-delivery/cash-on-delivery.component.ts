@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-cash-on-delivery',
@@ -7,7 +8,10 @@ import { Component } from '@angular/core';
 })
 export class CashOnDeliveryComponent {
 
+  private _cartService = inject(CartService);
+
   placeOrder(){
-    alert('Cash on delivery');
+      this._cartService.payment = 'Cash on delivery';
+      this._cartService.placeOrder();
   }
 }

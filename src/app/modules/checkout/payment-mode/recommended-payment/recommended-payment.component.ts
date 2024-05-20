@@ -1,7 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CashOnDeliveryComponent } from '../cash-on-delivery/cash-on-delivery.component';
 import { PayNowComponent } from '../pay-now/pay-now.component';
 import { PaymentOption } from 'src/app/core/models/payment-option.model';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-recommended-payment',
@@ -10,6 +11,8 @@ import { PaymentOption } from 'src/app/core/models/payment-option.model';
 })
 export class RecommendedPaymentComponent {
 
+  private _cartService = inject(CartService);
+  
   options: PaymentOption[] = [
     {
       displayName: 'Cash on delivery',
@@ -24,7 +27,10 @@ export class RecommendedPaymentComponent {
       component: {
         name: PayNowComponent,
         inputs: { 
-          payNow: () => alert('Paid via gpay') 
+          payNow: () => {
+            this._cartService.payment = 'GPay';
+            this._cartService.placeOrder();
+          } 
         }
       }
     },
@@ -33,7 +39,12 @@ export class RecommendedPaymentComponent {
       value: 'phonePe',
       component: {
         name: PayNowComponent,
-        inputs: { payNow: () => alert('Paid via PhonePe') }
+        inputs: { 
+          payNow: () => {
+            this._cartService.payment = 'PhonePe';
+            this._cartService.placeOrder();
+          }
+        }
       }
     }
   ];

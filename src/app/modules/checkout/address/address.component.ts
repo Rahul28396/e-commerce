@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddressFormComponent } from '../address-form/address-form.component';
 import { AddressService } from 'src/app/core/services/address.service';
 import { Address } from 'src/app/core/models/address.model';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-address',
@@ -12,7 +13,8 @@ import { Address } from 'src/app/core/models/address.model';
 export class AddressComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
-    private addressService: AddressService
+    private addressService: AddressService,
+    private cartService: CartService
   ) { }
 
   addressList: Address[] = [];
@@ -38,10 +40,12 @@ export class AddressComponent implements OnInit {
     const defaultAddress = this.addressList.find(address => address.isDefault) || this.addressList[0];
     defaultAddress.isDefault = true;
     this.selectedAddress = defaultAddress;
+    this.selectAddress(defaultAddress);
   }
 
   selectAddress(address: Address) {
     this.selectedAddress = address;
+    this.cartService.selectedAddress = address;
   }
 
   editAddress(address: Address) {

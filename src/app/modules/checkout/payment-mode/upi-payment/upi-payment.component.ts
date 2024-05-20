@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PaymentOption } from 'src/app/core/models/payment-option.model';
 import { PayNowComponent } from '../pay-now/pay-now.component';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-upi-payment',
@@ -8,14 +9,20 @@ import { PayNowComponent } from '../pay-now/pay-now.component';
   styleUrl: './upi-payment.component.scss'
 })
 export class UpiPaymentComponent {
+
+  private _cartService = inject(CartService);
+
   options: PaymentOption[] = [
     {
       displayName: 'BHIM',
       value: 'bhim',
       component: {
         name: PayNowComponent,
-        inputs: { 
-          payNow: () => alert('Paid via bhim app') 
+        inputs: {
+          payNow: () => {
+            this._cartService.payment = 'BHIM';
+            this._cartService.placeOrder();
+          }
         }
       }
     },
@@ -24,8 +31,11 @@ export class UpiPaymentComponent {
       value: 'gpay',
       component: {
         name: PayNowComponent,
-        inputs: { 
-          payNow: () => alert('Paid via gpay') 
+        inputs: {
+          payNow: () => {
+            this._cartService.payment = 'Gpay';
+            this._cartService.placeOrder();
+          }
         }
       }
     },
@@ -34,7 +44,12 @@ export class UpiPaymentComponent {
       value: 'phonePe',
       component: {
         name: PayNowComponent,
-        inputs: { payNow: () => alert('Paid via PhonePe') }
+        inputs: {
+          payNow: () => {
+            this._cartService.payment = 'PhonePe';
+            this._cartService.placeOrder();
+          }
+        }
       }
     }
   ];

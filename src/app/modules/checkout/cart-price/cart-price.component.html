@@ -4,23 +4,23 @@
 
     <p class="cart-price__item">
         <span>Total MRP</span>
-        <span>{{'3288' | currency: 'INR'}}</span>
+        <span>{{ priceDetails.totalMrp | currency: 'INR'}}</span>
     </p>
     <p class="cart-price__item">
         <span>Discount on MRP</span>
-        <span>{{'328' | currency: 'INR'}}</span>
+        <span>{{ priceDetails.discountOnMrp | currency: 'INR'}}</span>
     </p>
     <p class="cart-price__item">
         <span>Coupon Discount</span>
-        <span>{{'128' | currency: 'INR'}}</span>
+        <span>{{ priceDetails.couponDiscount | currency: 'INR'}}</span>
     </p>
     <p class="cart-price__item">
         <span>Platform Fee</span>
-        <span>{{'38' | currency: 'INR'}}</span>
+        <span>{{ priceDetails.platformFee | currency: 'INR'}}</span>
     </p>
     <p class="cart-price__item">
         <span>Shipping Fee</span>
-        <span>{{'150' | currency: 'INR'}}</span>
+        <span>{{ priceDetails.shippingFee| currency: 'INR'}}</span>
     </p>
 
     <h4 class="cart-price__item cart-price__total-amount">
@@ -28,7 +28,7 @@
             Total amount: 
         </span>
         <span>
-            {{'4000' | currency: 'INR'}}
+            {{ priceDetails | totalPrice | currency: 'INR'}}
         </span> 
     </h4>
 

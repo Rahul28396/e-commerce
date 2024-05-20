@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, ResolveEnd, Router, Scroll } from '@angular/router';
+import { PriceDetails } from 'src/app/core/models/price-details.model';
 import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
@@ -49,5 +50,13 @@ export class CheckoutComponent implements OnInit {
           url: ''
         };
     }
+  }
+
+  get isOrderDone(){
+    return this._cartService.isOrderDone
+  }
+
+  get cartPrice(): PriceDetails{
+    return this._cartService.getCartPrice()
   }
 }

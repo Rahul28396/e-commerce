@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PriceDetails } from 'src/app/core/models/price-details.model';
 export interface ButtonConfig {
   name: string,
   url: string
@@ -10,7 +11,9 @@ export interface ButtonConfig {
 })
 export class CartPriceComponent {
 
-  @Input() buttonConfig!: ButtonConfig
+  @Input() buttonConfig!: ButtonConfig;
+
+  @Input() priceDetails!: PriceDetails;
 
 }
 

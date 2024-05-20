@@ -20,6 +20,7 @@ import { PayNowComponent } from './payment-mode/pay-now/pay-now.component';
 import { PaymentOptionComponent } from './payment-mode/payment-option/payment-option.component';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { AddressDetailsComponent } from './address-details/address-details.component';
+import { OrderSuccessfullComponent } from './order-successfull/order-successfull.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AddressDetailsComponent } from './address-details/address-details.compo
     PayNowComponent,
     PaymentOptionComponent,
     AddressFormComponent,
-    AddressDetailsComponent
+    AddressDetailsComponent,
+    OrderSuccessfullComponent
   ],
   imports: [
     CommonModule,
