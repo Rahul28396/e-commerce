@@ -1,0 +1,18 @@
+.profile-details__form{
+    &--input{
+        width: 100%;
+        &-section{
+            display: flex;
+            gap: 16px;
+        }
+    }
+
+    &--button{
+        margin: auto;
+        width: 50%;
+
+        &-section{
+            text-align: center;
+        }
+    }
+}

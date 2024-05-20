@@ -1,0 +1,43 @@
+.profile {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    padding: 48px;
+
+    &__sidebar {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        border-right: 1px solid #8080806b;
+
+        &--item {
+            padding: 12px;
+            margin-right: 24px;
+
+            > a{
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+            }
+            
+            &:not(:last-child){
+                border-bottom: 1px solid #8080808a;
+            }
+
+            &:hover{
+                background-color: #8080807a;
+            }
+
+            &-selected{
+                background-color: #8080806b;
+            }
+        }
+    }
+
+    &__main-container {
+        padding: 12px;
+        margin: 12px;
+        border: 1px solid #8080807a;
+        width: 60%;
+    }
+}

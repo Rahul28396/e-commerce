@@ -1,1 +1,22 @@
-<p>user works!</p>
+<section class="profile">
+    <ul class="profile__sidebar">
+        <li class="profile__sidebar--item profile__sidebar--item-selected">
+            <a routerLink="/profile/profile-details">Profile</a>
+        </li>
+        <li class="profile__sidebar--item">
+            <a routerLink="/profile/orders">Orders</a>
+        </li>
+        <li class="profile__sidebar--item">
+            <a routerLink="/profile/addresess">Saved Address</a>
+        </li>
+        <li class="profile__sidebar--item">
+            <a routerLink="/profile/cards">Saved Cards</a>
+        </li>
+        <li class="profile__sidebar--item">
+            <a routerLink="/profile/vpa">Saved VPA</a>
+        </li>
+    </ul>
+    <div class="profile__main-container">
+        <router-outlet></router-outlet>
+    </div>
+</section>

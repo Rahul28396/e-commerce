@@ -1,1 +1,71 @@
-<p>profile-details works!</p>
+<section>
+    <h3>Profile Details</h3>
+    <form *ngIf="loggedInUser" [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="profile-details__form">
+
+        <div class="profile-details__form--input-section">
+            <mat-form-field appearance="outline" class="profile-details__form--input">
+                <mat-label>Name</mat-label>
+                <input matInput required formControlName="name">
+                @if (formControl('name')?.invalid && formControl('name')?.errors?.['required']) {
+                <mat-error>Please enter a value.</mat-error>
+                }@else if (formControl('name')?.errors?.['minlength']) {
+                <mat-error>
+                    Name must be at least 4 characters long.
+                </mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="profile-details__form--input">
+                <mat-label>Email</mat-label>
+                <input matInput required formControlName="email">
+                @if (formControl('email')?.invalid && formControl('email')?.errors?.['required']) {
+                <mat-error>Please enter a value.</mat-error>
+                }@else if (formControl('email')?.errors?.['email']) {
+                <mat-error>
+                    Please enter a valid email address.
+                </mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="profile-details__form--input-section">
+            <mat-form-field appearance="outline" class="profile-details__form--input">
+                <mat-label>Password</mat-label>
+                <input matInput required formControlName="password" type="password">
+                @if (formControl('password')?.invalid && formControl('password')?.errors?.['required']) {
+                <mat-error>Please enter a value</mat-error>
+                }@else if (formControl('password')?.errors?.['invalidPassword']) {
+                <mat-error>
+                    Please enter valid password format
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="profile-details__form--input">
+                <mat-label>New Password</mat-label>
+                <input matInput required formControlName="newPassword" type="password">
+                @if (formControl('newPassword')?.invalid && formControl('newPassword')?.errors?.['required']) {
+                    <mat-error>Please enter a value</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        @if (profileForm.errors?.['invalidConfirmPassword']) {
+        <mat-error>
+            Please enter same value as password.
+        </mat-error>
+        }
+
+        @if (errorMessage) {
+        <mat-error>
+            {{errorMessage}}
+        </mat-error>
+        }
+
+        <div class="profile-details__form--button-section">
+            <button type="submit" [disabled]="!profileForm.valid" class="btn cart-btn profile-details__form--button">
+                Save Details
+            </button>
+        </div>
+       
+    </form>
+</section>

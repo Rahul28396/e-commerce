@@ -10,27 +10,29 @@ import { ManageUpiComponent } from './manage-upi/manage-upi.component';
 const routes: Routes = [
   {
     path: '',
-    component: UserComponent
-  },
-  {
-    path: 'addresess',
-    component: ManageAddressComponent
-  },
-  {
-    path: 'cards',
-    component: ManageCardsComponent
-  },
-  {
-    path: 'orders',
-    component: OrdersComponent
-  },
-  {
-    path: 'vpa',
-    component: ManageUpiComponent
-  },
-  {
-    path: 'profile-details',
-    component: ProfileDetailsComponent
+    component: UserComponent,
+    children: [
+      {
+        path: 'addresess',
+        component: ManageAddressComponent
+      },
+      {
+        path: 'cards',
+        component: ManageCardsComponent
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent
+      },
+      {
+        path: 'vpa',
+        component: ManageUpiComponent
+      },
+      {
+        path: 'profile-details',
+        component: ProfileDetailsComponent
+      }
+    ]
   }
 ];
 

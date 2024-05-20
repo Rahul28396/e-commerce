@@ -8,6 +8,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { ManageAddressComponent } from './manage-address/manage-address.component';
 import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import { ManageUpiComponent } from './manage-upi/manage-upi.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonMaterialModule } from '../common-material/common-material.module';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ManageUpiComponent } from './manage-upi/manage-upi.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    ReactiveFormsModule,
+    CommonMaterialModule
   ]
 })
 export class UserModule { }
