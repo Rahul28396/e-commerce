@@ -7,6 +7,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ManageUpiComponent } from './manage-upi/manage-upi.component';
 import { canComponentDeactivateGuard } from 'src/app/core/route-guards/can-component-deactivate.guard';
+import { profileDetailsResolver } from 'src/app/core/resolvers/profile-details-resolver.resolver';
 
 const routes: Routes = [
   {
@@ -32,7 +33,10 @@ const routes: Routes = [
       {
         path: 'profile-details',
         component: ProfileDetailsComponent,
-        canDeactivate: [canComponentDeactivateGuard]
+        canDeactivate: [canComponentDeactivateGuard],
+        resolve: {
+          loggedInUser : profileDetailsResolver
+        }
       }
     ]
   }
