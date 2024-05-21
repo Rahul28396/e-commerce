@@ -27,32 +27,35 @@
             </mat-form-field>
         </div>
 
-        <div class="profile-details__form--input-section">
-            <mat-form-field appearance="outline" class="profile-details__form--input">
-                <mat-label>Password</mat-label>
-                <input matInput required formControlName="password" type="password">
-                @if (formControl('password')?.invalid && formControl('password')?.errors?.['required']) {
-                <mat-error>Please enter a value</mat-error>
-                }@else if (formControl('password')?.errors?.['invalidPassword']) {
-                <mat-error>
-                    Please enter valid password format
-                </mat-error>
-                }
-            </mat-form-field>
+        <p>
+            <mat-slide-toggle 
+                labelPosition="before" 
+                [checked]="showChangePassword" 
+                (toggleChange)="showChangePassword = !showChangePassword" >
+                    Want to change your password ?
+                </mat-slide-toggle>
+        </p>
 
-            <mat-form-field appearance="outline" class="profile-details__form--input">
-                <mat-label>New Password</mat-label>
-                <input matInput required formControlName="newPassword" type="password">
-                @if (formControl('newPassword')?.invalid && formControl('newPassword')?.errors?.['required']) {
-                    <mat-error>Please enter a value</mat-error>
-                }
-            </mat-form-field>
-        </div>
+        @if (showChangePassword) {
+            <div class="profile-details__form--input-section">
+                <mat-form-field appearance="outline" class="profile-details__form--input">
+                    <mat-label>Password</mat-label>
+                    <input matInput required formControlName="password" type="password">
+                    @if (formControl('password')?.errors?.['invalidPassword']) {
+                        <mat-error>
+                            Please enter valid password format
+                        </mat-error>
+                    }
+                </mat-form-field>
 
-        @if (profileForm.errors?.['invalidConfirmPassword']) {
-        <mat-error>
-            Please enter same value as password.
-        </mat-error>
+                <mat-form-field appearance="outline" class="profile-details__form--input">
+                    <mat-label>New Password</mat-label>
+                    <input matInput required formControlName="newPassword" type="password">
+                </mat-form-field>
+                @if (profileForm.errors?.['equal']) {
+                    <mat-error>Please don't enter old password</mat-error>
+                }
+            </div>
         }
 
         @if (errorMessage) {
@@ -66,6 +69,6 @@
                 Save Details
             </button>
         </div>
-       
+        
     </form>
 </section>

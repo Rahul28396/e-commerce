@@ -6,6 +6,7 @@ import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ManageUpiComponent } from './manage-upi/manage-upi.component';
+import { canComponentDeactivateGuard } from 'src/app/core/route-guards/can-component-deactivate.guard';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
       },
       {
         path: 'profile-details',
-        component: ProfileDetailsComponent
+        component: ProfileDetailsComponent,
+        canDeactivate: [canComponentDeactivateGuard]
       }
     ]
   }

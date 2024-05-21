@@ -29,7 +29,7 @@ export function pincodeValidator(): ValidatorFn {
 export function passwordValidator(): ValidatorFn {
     return (control: AbstractControl<string>): ValidationErrors | null => {
         const regex = /^[a-zA-Z0-9]+$/;
-        return control.value.match(regex) ? null : { invalidPassword: control.value }
+        return control.value.match(regex) || !control.value.length ? null : { invalidPassword: true }
     }
 }
 
@@ -39,5 +39,13 @@ export function confirmPasswordValidator(): ValidatorFn {
         const password = control.get('password');
         const confirmPassword = control.get('confirmPassword');
         return password?.value !== confirmPassword?.value ? { invalidConfirmPassword: true } : null;
+    };
+}
+
+export function notEqualityValidator(key1: string, key2:string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+        const value1 = control.get(key1);
+        const value2 = control.get(key2);
+        return value1?.value === value2?.value ? { equal: true } : null;
     };
 } 

@@ -1,22 +1,25 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Observable, of } from 'rxjs';
 import { User } from 'src/app/core/models/user.model';
+import { CanComponentDeactivate } from 'src/app/core/route-guards/can-component-deactivate.guard';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
-import { passwordValidator } from 'src/app/core/validators/validator';
+import { notEqualityValidator, passwordValidator } from 'src/app/core/validators/validator';
 
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
   styleUrls: ['./profile-details.component.scss']
 })
-export class ProfileDetailsComponent implements OnInit {
+export class ProfileDetailsComponent implements OnInit, CanComponentDeactivate {
 
   private fbService = inject(FormBuilder);
   private authService = inject(AuthenticationService);
 
   loggedInUser!: Partial<User> | null;
   errorMessage: string = '';
-  profileForm: any; 
+  profileForm: any;
+  showChangePassword = false; 
 
   ngOnInit(): void {
     this.authService.getLoggedInUserDetails<User>().subscribe({
@@ -28,11 +31,22 @@ export class ProfileDetailsComponent implements OnInit {
           password: [this.loggedInUser?.password ?? '', [passwordValidator()]],
           newPassword: ['', [passwordValidator()]],
           avartar: [this.loggedInUser?.avatar ?? '']
+        },
+        {
+          validators: notEqualityValidator('password','newPassword')
         });
       }
     });
     
   }
+
+  canDeactivate(): Observable<boolean>{
+    const confirmation = window.confirm('Is it OK?');
+
+    return of(confirmation);
+  }
+
+
 
   formControl(key: string) {
     return this.profileForm.get(key);
