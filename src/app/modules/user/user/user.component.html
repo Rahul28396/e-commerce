@@ -1,22 +1,32 @@
 <section class="profile">
     <ul class="profile__sidebar">
         <li class="profile__sidebar--item profile__sidebar--item-selected">
-            <a routerLink="/profile/profile-details">Profile</a>
+            <a routerLink="profile-details">Profile</a>
         </li>
         <li class="profile__sidebar--item">
-            <a routerLink="/profile/orders">Orders</a>
+            <a routerLink="orders">Orders</a>
         </li>
         <li class="profile__sidebar--item">
-            <a routerLink="/profile/addresess">Saved Address</a>
+            <a routerLink="addresess">Saved Address</a>
         </li>
         <li class="profile__sidebar--item">
-            <a routerLink="/profile/cards">Saved Cards</a>
+            <a routerLink="cards">Saved Cards</a>
         </li>
         <li class="profile__sidebar--item">
-            <a routerLink="/profile/vpa">Saved VPA</a>
+            <a (click)="goToPath('vpa')">Saved VPA</a>
+        </li>
+        <li class="profile__sidebar--item">
+            <a routerLink="/wishlist">Saved Items</a>
         </li>
     </ul>
     <div class="profile__main-container">
         <router-outlet></router-outlet>
     </div>
 </section>
+
+<!-- 
+    Relative path example from router link
+    1. use ./ or no leading slash to specify the current level.
+    2. use the ../ notation to go up a level.
+    3. use only slash (/) to specify absolute path
+ -->

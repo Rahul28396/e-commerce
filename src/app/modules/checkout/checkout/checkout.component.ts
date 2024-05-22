@@ -37,12 +37,12 @@ export class CheckoutComponent implements OnInit {
       case 'cart':
         return {
           name: 'Place Order',
-          url: '/checkout/address'
+          url: 'address' // Relative url to activated route
         };
       case 'address':
         return {
           name: 'Continue',
-          url: '/checkout/payment'
+          url: 'payment' // Relative url to activated route
         };
       default:
         return {

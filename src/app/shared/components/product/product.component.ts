@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartProduct } from 'src/app/core/models/cart-product.model';
 import { Product } from 'src/app/core/models/product.model';
 import { CartService } from 'src/app/core/services/cart.service';
@@ -17,7 +18,8 @@ export class ProductComponent {
 
   constructor(
     private _cartService: CartService,
-    private _wishlistService: WishlistService
+    private _wishlistService: WishlistService,
+    private _router: Router
   ) {
 
   }
@@ -36,6 +38,10 @@ export class ProductComponent {
 
   addToWishlist(productId: number): void {
     this._wishlistService.addToWishList(productId);
+  }
+
+  goToDetailsPage(productId: number): void{
+    this._router.navigate(['products',productId])
   }
   
 }

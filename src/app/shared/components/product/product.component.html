@@ -5,7 +5,7 @@
     <img [src]="productInfo.images | productImage" alt="Smartphone" class="product-card__image">
     <div class="product-card__details">
         <h4 class="product-card__name">
-            <a [routerLink]="'/products/'+ productInfo.id">
+            <a (click)="goToDetailsPage(productInfo.id)">
                 {{productInfo.title | productHeaderText: 20}}
             </a>
         </h4>
