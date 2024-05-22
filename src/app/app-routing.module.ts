@@ -12,12 +12,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m=> m.HomeModule),
-    title: 'HOMR | ECart'
+    title: 'HOME'
   },
   {
     path: 'products',
     loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule),
-    title: 'PRODUCTS | ECart',
+    title: 'PRODUCTS',
     data: {
       preload: true
     }
@@ -25,48 +25,45 @@ const routes: Routes = [
   {
     path: 'checkout',
     loadChildren: () => import('./modules/checkout/checkout.module').then(m=>m.CheckoutModule),
-    title: 'CHECKOUT | ECart',
+    title: 'CHECKOUT',
     canActivate: [authGuard],
     canActivateChild: [checkoutPageGuard],
     canMatch: [authGuard]
-    // data: {
-    //   preload: true
-    // }
   },
   {
     path: 'profile',
     loadChildren: () => import('./modules/user/user.module').then(m=>m.UserModule),
-    title: 'PROFILE | ECart',
+    // title: 'PROFILE',
     canActivate: [authGuard]
   },
   {
     path: 'wishlist',
     loadComponent: () => import('./components/wishlist/wishlist.component').then(c=>c.WishlistComponent),
-    title: 'WISHLIST | ECart',
+    title: 'WISHLIST',
     canActivate:  [authGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
-    title: 'LOGIN | ECart',
+    title: 'LOGIN',
     canActivate:  [loginGuard]
   },
   {
     path: 'signup',
     component: SignupComponent,
-    title: 'SIGNUP | ECart',
+    title: 'SIGNUP',
     canActivate:  [loginGuard]
   },
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
-    title: 'FORGOT PASSWORD | ECart',
+    title: 'FORGOT PASSWORD',
     canActivate:  [loginGuard]
   },
   {
     path: '**',
     loadComponent: () => import('./components/not-found/not-found.component').then(c => c.NotFoundComponent),
-    title: 'NOT FOUND | ECart'
+    title: 'NOT FOUND'
   }
 ];
 

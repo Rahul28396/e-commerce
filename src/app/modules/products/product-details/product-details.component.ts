@@ -1,38 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/core/models/product.model';
-import { ProductService } from 'src/app/core/services/product.service';
+import { TemplatePageTitleStrategyService } from 'src/app/core/services/template-page-title-strategy.service';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent implements OnInit{
+export class ProductDetailsComponent implements OnInit {
   productDetails!: Product;
   selectedImage!: string;
-  
+
   constructor(
-    private _productService: ProductService,
-    private _routerService: ActivatedRoute
-  ){
+    private _routerService: ActivatedRoute,
+    private _title: TemplatePageTitleStrategyService,
+    // private builtInTitle : Title
+  ) {}
 
-  }
-  
   ngOnInit(): void {
-    this._routerService.params.subscribe((params: { [x: string]: string | number; }) => {
-      const productId = +params['productId'];
-      this._productService.getProduct(productId).subscribe({
-        next: (data: Product) => {
-          this.productDetails = data
-          this.selectedImage = this.productDetails.images[0];
-        }
-      })
+    this._routerService.data.subscribe(value => {
+      this.productDetails = value['productDetails'];
+      this.selectedImage = this.productDetails.images[0];
+      this._title.setTitle(this.productDetails.title);
+      // this.builtInTitle.setTitle(this.productDetails.title)
     })
-    
+
   }
 
-  changeSelectedImage(image: string){
+  changeSelectedImage(image: string) {
     this.selectedImage = image;
   }
 

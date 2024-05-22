@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { User } from 'src/app/core/models/user.model';
 import { CanComponentDeactivate } from 'src/app/core/route-guards/can-component-deactivate.guard';
-import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { notEqualityValidator, passwordValidator } from 'src/app/core/validators/validator';
 
 @Component({
@@ -15,7 +14,6 @@ import { notEqualityValidator, passwordValidator } from 'src/app/core/validators
 export class ProfileDetailsComponent implements OnInit, CanComponentDeactivate {
 
   private fbService = inject(FormBuilder);
-  private authService = inject(AuthenticationService);
   private route = inject(ActivatedRoute);
 
   loggedInUser!: Partial<User> | null;
@@ -54,8 +52,6 @@ export class ProfileDetailsComponent implements OnInit, CanComponentDeactivate {
    
     return of(true);
   }
-
-
 
   formControl(key: string) {
     return this.profileForm.get(key);

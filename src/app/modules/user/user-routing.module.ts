@@ -13,21 +13,26 @@ const routes: Routes = [
   {
     path: '',
     component: UserComponent,
+    title: 'PROFILE',
     children: [
       {
         path: 'addresess',
+        title: 'SAVED ADDRESS',
         component: ManageAddressComponent
       },
       {
         path: 'cards',
+        title: 'SAVED CARDS',
         component: ManageCardsComponent
       },
       {
         path: 'orders',
+        title: 'ORDERS',
         component: OrdersComponent
       },
       {
         path: 'vpa',
+        title: 'SAVED VPA',
         component: ManageUpiComponent
       },
       {

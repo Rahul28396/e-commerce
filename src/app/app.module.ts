@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TitleStrategy } from '@angular/router';
+import { TemplatePageTitleStrategyService } from './core/services/template-page-title-strategy.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: TitleStrategy , useClass: TemplatePageTitleStrategyService
+    }
   ],
   bootstrap: [AppComponent]
 })
