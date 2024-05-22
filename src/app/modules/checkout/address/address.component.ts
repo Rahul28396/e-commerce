@@ -37,10 +37,14 @@ export class AddressComponent implements OnInit {
 
   getAllAddress(): void {
     this.addressList = this.addressService.getAllAddress();
-    const defaultAddress = this.addressList.find(address => address.isDefault) || this.addressList[0];
-    defaultAddress.isDefault = true;
-    this.selectedAddress = defaultAddress;
-    this.selectAddress(defaultAddress);
+    
+    if(this.addressList.length){
+      const defaultAddress = this.addressList.find(address => address.isDefault) || this.addressList[0];
+      defaultAddress.isDefault = true;
+      this.selectedAddress = defaultAddress;
+      this.selectAddress(defaultAddress);
+    }
+    
   }
 
   selectAddress(address: Address) {

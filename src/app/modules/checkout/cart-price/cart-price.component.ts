@@ -15,5 +15,7 @@ export class CartPriceComponent {
 
   @Input() priceDetails!: PriceDetails;
 
+  @Input() isButtonDisabled: boolean = false;
+
 }
 

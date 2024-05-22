@@ -6,7 +6,12 @@
 
         <ng-container *ngIf="!isEmptyState">
             <div class="horizontal-divider"></div>
-            <app-cart-price class="checkout__price-details" [buttonConfig]="buttonConfig" [priceDetails]="cartPrice" />
+            <app-cart-price 
+                class="checkout__price-details" 
+                [buttonConfig]="buttonConfig" 
+                [priceDetails]="cartPrice"
+                [isButtonDisabled]="isButtonDisabled"
+            />
         </ng-container>
     </section>
 

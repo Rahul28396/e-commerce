@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, NavigationStart, ResolveEnd, Router, Scroll } from '@angular/router';
+import { Router, Scroll } from '@angular/router';
 import { PriceDetails } from 'src/app/core/models/price-details.model';
 import { CartService } from 'src/app/core/services/cart.service';
 
@@ -28,11 +28,11 @@ export class CheckoutComponent implements OnInit {
     })
   }
 
-  get isEmptyState() {
+  get isEmptyState(): boolean {
     return !this._cartService.cartItems.length;
   }
 
-  get buttonConfig() {
+  get buttonConfig(): { name: string, url: string} {
     switch (this.pageName) {
       case 'cart':
         return {
@@ -52,11 +52,16 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  get isOrderDone(){
-    return this._cartService.isOrderDone
+  get isOrderDone(): boolean{
+    return this._cartService.isOrderDone;
   }
 
   get cartPrice(): PriceDetails{
-    return this._cartService.getCartPrice()
+    return this._cartService.getCartPrice();
+  }
+
+  get isButtonDisabled(): boolean {
+    
+    return this.pageName === 'address' && !(this._cartService.selectedAddress);
   }
 }

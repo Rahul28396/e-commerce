@@ -33,5 +33,12 @@
     </h4>
 
 
-    <button *ngIf="buttonConfig.name" class="btn full-width cart-btn" [routerLink]="buttonConfig.url">{{buttonConfig.name}}</button>
+    <button 
+        *ngIf="buttonConfig.name" 
+        class="btn full-width cart-btn" 
+        [routerLink]="buttonConfig.url"
+        [disabled]="isButtonDisabled"
+    >
+        {{buttonConfig.name}}
+    </button>
 </section>
