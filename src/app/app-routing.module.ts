@@ -28,6 +28,7 @@ const routes: Routes = [
     title: 'CHECKOUT | ECart',
     canActivate: [authGuard],
     canActivateChild: [checkoutPageGuard],
+    canMatch: [authGuard]
     // data: {
     //   preload: true
     // }
