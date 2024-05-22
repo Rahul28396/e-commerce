@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SelectivePreloadingStrategyService } from './core/services/selective-preloading-strategy.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e-commerce';
+  preloadindStrategy = inject(SelectivePreloadingStrategyService);
+
+  constructor(){
+    console.log(this.preloadindStrategy.preloadedModules);
+  }
 }

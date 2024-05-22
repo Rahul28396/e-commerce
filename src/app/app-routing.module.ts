@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { authGuard } from './core/route-guards/auth.guard';
 import { loginGuard } from './core/route-guards/login.guard';
 import { checkoutPageGuard } from './core/route-guards/checkout-page.guard';
+import { SelectivePreloadingStrategyService } from './core/services/selective-preloading-strategy.service';
 
 const routes: Routes = [
   {
@@ -16,14 +17,20 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule),
-    title: 'PRODUCTS | ECart'
+    title: 'PRODUCTS | ECart',
+    data: {
+      preload: true
+    }
   },
   {
     path: 'checkout',
     loadChildren: () => import('./modules/checkout/checkout.module').then(m=>m.CheckoutModule),
     title: 'CHECKOUT | ECart',
     canActivate: [authGuard],
-    canActivateChild: [checkoutPageGuard]
+    canActivateChild: [checkoutPageGuard],
+    // data: {
+    //   preload: true
+    // }
   },
   {
     path: 'profile',
@@ -63,7 +70,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      // enableTracing: true, // <-- debugging purposes only
+      preloadingStrategy: SelectivePreloadingStrategyService
+    }
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
