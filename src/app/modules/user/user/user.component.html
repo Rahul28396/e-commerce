@@ -1,22 +1,22 @@
 <section class="profile">
     <ul class="profile__sidebar">
-        <li class="profile__sidebar--item profile__sidebar--item-selected">
-            <a routerLink="profile-details">Profile</a>
+        <li class="profile__sidebar--item" routerLinkActive="profile__sidebar--item-selected">
+            <a routerLink="profile-details" >Profile</a>
         </li>
-        <li class="profile__sidebar--item">
+        <li class="profile__sidebar--item" routerLinkActive="profile__sidebar--item-selected">
             <a routerLink="orders">Orders</a>
         </li>
-        <li class="profile__sidebar--item">
+        <li class="profile__sidebar--item" routerLinkActive="profile__sidebar--item-selected">
             <a routerLink="addresess">Saved Address</a>
         </li>
-        <li class="profile__sidebar--item">
+        <li class="profile__sidebar--item" routerLinkActive="profile__sidebar--item-selected">
             <a routerLink="cards">Saved Cards</a>
         </li>
-        <li class="profile__sidebar--item">
+        <li class="profile__sidebar--item" routerLinkActive="profile__sidebar--item-selected">
             <a (click)="goToPath('vpa')">Saved VPA</a>
         </li>
-        <li class="profile__sidebar--item">
-            <a routerLink="/wishlist">Saved Items</a>
+        <li class="profile__sidebar--item" routerLinkActive="profile__sidebar--item-selected">
+            <a routerLink="/wishlist" >Saved Items</a>
         </li>
     </ul>
     <div class="profile__main-container">
@@ -29,4 +29,5 @@
     1. use ./ or no leading slash to specify the current level.
     2. use the ../ notation to go up a level.
     3. use only slash (/) to specify absolute path
+    4. routerLinkActive is used to the add selected class in the active route
  -->
