@@ -18,6 +18,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TitleStrategy } from '@angular/router';
 import { TemplatePageTitleStrategyService } from './core/services/template-page-title-strategy.service';
+import { LogInterceptorProvider } from './core/interceptors/log-interceptor';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,10 @@ import { TemplatePageTitleStrategyService } from './core/services/template-page-
     MatIconModule,
     MatBadgeModule,
     ReactiveFormsModule,
-    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync(),
+    LogInterceptorProvider,
     {
       provide: TitleStrategy , useClass: TemplatePageTitleStrategyService
     }
