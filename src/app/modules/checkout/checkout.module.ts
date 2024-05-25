@@ -21,6 +21,7 @@ import { PaymentOptionComponent } from './payment-mode/payment-option/payment-op
 import { AddressFormComponent } from './address-form/address-form.component';
 import { AddressDetailsComponent } from './address-details/address-details.component';
 import { OrderSuccessfullComponent } from './order-successfull/order-successfull.component';
+import { DirectiveModule } from 'src/app/shared/directives/directive.module';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { OrderSuccessfullComponent } from './order-successfull/order-successfull
     PipeModule,
     FormsModule,
     ReactiveFormsModule,
+    DirectiveModule
   ]
 })
 export class CheckoutModule { }

@@ -13,11 +13,13 @@ export const checkoutPageGuard: CanActivateChildFn = (route, state) => {
    */
 
   if (isCartPage) {
+    cartService.isOrderDone = false;
     return true;
   } else {
     if (cartService.cartItems.length) {
       return true;
     } else {
+      cartService.isOrderDone = false;
       router.navigateByUrl('/checkout/cart');
     }
   }
