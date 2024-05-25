@@ -3,7 +3,7 @@
 
     <div class="Wish-list__product-container">
         <app-product 
-            *ngFor="let product of (wishlistProducts)" 
+            *for="let product of (wishlistProducts)" 
             [productInfo]="product" 
             [isWishListProduct]="true"
             (moveToCart)="moveToBag($event)"

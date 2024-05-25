@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/core/models/product.model';
 import { WishlistService } from 'src/app/core/services/wishlist.service';
 import { SharedComponentModule } from 'src/app/shared/components/shared-component.module';
+import { DirectiveModule } from 'src/app/shared/directives/directive.module';
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
   imports: [
     CommonModule,
-    SharedComponentModule
+    SharedComponentModule,
+    DirectiveModule
   ],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'

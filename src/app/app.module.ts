@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TitleStrategy } from '@angular/router';
 import { TemplatePageTitleStrategyService } from './core/services/template-page-title-strategy.service';
 import { LogInterceptorProvider } from './core/interceptors/log-interceptor';
+import { DirectiveModule } from './shared/directives/directive.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LogInterceptorProvider } from './core/interceptors/log-interceptor';
     MatIconModule,
     MatBadgeModule,
     ReactiveFormsModule,
+    DirectiveModule
   ],
   providers: [
     provideAnimationsAsync(),

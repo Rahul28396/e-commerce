@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UnlessDirective } from './unless.directive';
+import { ForDirective } from './for.directive';
 
 const directives = [
-  UnlessDirective
+  UnlessDirective,
+  ForDirective
 ]
 
 @NgModule({

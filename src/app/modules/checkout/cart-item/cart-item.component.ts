@@ -10,6 +10,7 @@ import { CartService } from 'src/app/core/services/cart.service';
 })
 export class CartItemComponent {
   @Input() cartItem! : CartProduct;
+  @Input() index!: number;
 
   constructor(private cartService: CartService){
 

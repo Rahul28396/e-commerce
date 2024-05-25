@@ -5,6 +5,7 @@ import { PipeModule } from '../pipes/pipe.module';
 import { RouterModule } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { EmptyStateComponent } from './empty-state/empty-state.component';
+import { DirectiveModule } from '../directives/directive.module';
 
 const sharedComponents = [
   ProductComponent,
@@ -16,7 +17,8 @@ const sharedComponents = [
     CommonModule,
     PipeModule,
     RouterModule,
-    MatIcon
+    MatIcon,
+    DirectiveModule
   ],
   declarations: sharedComponents,
   exports: sharedComponents
