@@ -10,15 +10,17 @@ class ForContext<T> {
 @Directive({
   selector: '[for]'
 })
-export class ForDirective<T> implements OnInit, OnChanges{
+export class ForDirective<T> implements OnChanges{
 
   @Input() forOf: Array<T> = []
 
   constructor(private tempateRef: TemplateRef<ForContext<T>>, private containerRef: ViewContainerRef) { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     if(this.forOf.length){
+      this.containerRef.clear();
       for (let index = 0; index < this.forOf.length; index++) {
+        
         this.containerRef.createEmbeddedView(this.tempateRef, {
           $implicit: this.forOf[index],
           index: index+1,
@@ -27,10 +29,6 @@ export class ForDirective<T> implements OnInit, OnChanges{
         })
       }
     }
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    
   }
 
 
