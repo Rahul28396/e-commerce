@@ -94,13 +94,12 @@
         </section>
 
         <section class="address-form__two-input mb-12">
-          <input type="checkbox" name="defaultCheck" id="default-check" formControlName="isDefault">
-          <label for="default-check">Mark this address as default</label>
+          <mat-checkbox class="example-margin" formControlName="isDefault">Mark as default</mat-checkbox>
         </section>
 
       </section>
     </mat-dialog-content>
-    <mat-dialog-actions align="center">
+    <mat-dialog-actions [align]="'center'">
       <button type="button" class="cart-btn full-width" mat-button [disabled]="!addressform.valid"
         (click)="saveAddress()">
         SaveAddress
