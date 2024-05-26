@@ -14,7 +14,11 @@
 </ng-container>
 
 <ng-template #emptyCart>
-    <app-empty-state>
+    <app-empty-state
+        icon="production_quantity_limits"
+        title="It seems that you have empty cart"
+        subtitle="Please add products for checkout"
+    >
         <button type="button" class="wish-list-button" (click)="goToCart()">
             Add product from wishlist
         </button>

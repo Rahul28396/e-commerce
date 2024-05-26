@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { EmptyStateComponent } from './empty-state/empty-state.component';
 import { DirectiveModule } from '../directives/directive.module';
+import { CustomSliderComponent } from './custom-slider/custom-slider.component';
 
 const sharedComponents = [
   ProductComponent,
-  EmptyStateComponent
+  EmptyStateComponent,
+  CustomSliderComponent
 ]
 
 @NgModule({

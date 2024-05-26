@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class EmptyStateComponent {
 
-  @Input() title: string = 'Hey,its feels your cart is empty';
-  @Input() subtitle: string = 'There is nothing in your bag.'
-  @Input() icon : string = 'shopping_cart';
+  @Input({required: true}) title: string = '';
+  @Input({required: true}) subtitle: string = '';
+  @Input({required: true}) icon : string = '';
 }

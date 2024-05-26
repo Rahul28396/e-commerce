@@ -35,7 +35,11 @@
 </ng-container>
 
 <ng-template #emptyAddress>
-    <app-empty-state>
+    <app-empty-state
+        icon="location_on"
+        title="Opps!! You don't have any saved address."
+        subtitle="Please add new address for the delivery"
+    >
         <button class="address__button" mat-button type="button" (click)="openDialog()">
             Add New Address
         </button>
