@@ -10,7 +10,10 @@
         </div>
     </div>
 
-    <app-cart-item *for="let item of cartService.cartItems; let i=index" [cartItem]="item" [index]="i"/>
+    <app-cart-item 
+        *for="let item of cartService.cartItems" 
+        [cartItem]="item"
+    />
 </ng-container>
 
 <ng-template #emptyCart>
