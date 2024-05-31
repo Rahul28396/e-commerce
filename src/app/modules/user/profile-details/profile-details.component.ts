@@ -44,7 +44,7 @@ export class ProfileDetailsComponent implements OnInit, CanComponentDeactivate {
 
     if(this.formControl('name').value !== this.loggedInUser?.name 
     || this.formControl('email').value !== this.loggedInUser?.email
-    || this.formControl('password').value !== this.loggedInUser?.password){
+    || this.formControl('password').value !== this.loggedInUser?.password){    
       const confirmation = window.confirm('Is it OK?');
 
       return of(confirmation);

@@ -31,7 +31,4 @@ export class ForDirective<T> implements OnChanges{
     }
   }
 
-
-
-
 }

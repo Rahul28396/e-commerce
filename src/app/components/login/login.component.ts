@@ -47,7 +47,10 @@ export class LoginComponent {
 
       },
       error: (error: HttpErrorResponse) => {
-        this.errorMessage = error.error['message'][0];
+        if(error.error['statusCode'] === 401){
+          this.errorMessage = 'Invalid credentials.';
+        }
+        
       },
       complete: () => {
         console.log('Completed')

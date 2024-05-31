@@ -11,11 +11,12 @@ export const productDetailsResolver: ResolveFn<Product> =
     const productService = inject(ProductService);
     const productId = Number(route.paramMap.get('productId'));
 
-    return productService.getProduct(productId).pipe(mergeMap(data => {
-      if (data) {
-        return of(data);
-      } else {
-        return EMPTY;
-      }
-    }));
+    return productService.getProduct(productId).pipe(
+      mergeMap(data => {
+        if (data) {
+          return of(data);
+        } else {
+          return EMPTY;
+        }
+      }));
   };

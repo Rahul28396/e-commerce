@@ -6,7 +6,7 @@ import { Component, ContentChild, TemplateRef } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  @ContentChild('defaultContent') defaultContentTemplate!: TemplateRef<any>;
+  @ContentChild('defaultContent',{ static: true, descendants: true}) defaultContentTemplate!: TemplateRef<any>;
 
   hasDefaultContent(): boolean {
     return !!this.defaultContentTemplate;
