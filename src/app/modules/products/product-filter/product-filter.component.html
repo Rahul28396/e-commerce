@@ -1,38 +1,46 @@
 <div class="sidebar">
     <h2>Filter Products</h2>
-    <div class="filter-category">
-        <h3>Category</h3>
-        <ul>
-            <li><label><input type="checkbox" value="Electronics">Electronics</label></li>
-            <li><label><input type="checkbox" value="Clothing">Clothing</label></li>
-            <li><label><input type="checkbox" value="Accessories">Accessories</label></li>
-        </ul>
+    <div class="filter-sort">
+        <h3>Sort by</h3>
+        <mat-form-field>
+            <mat-select [(value)]="sortBy">
+                <mat-option>None</mat-option>
+                <mat-option value="price-asc">Price Low to High</mat-option>
+                <mat-option value="price-desc">Price High to Low</mat-option>
+                <mat-option value="name-asc">Name A to Z</mat-option>
+                <mat-option value="name-desc">Name Z to A</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     <div class="filter-price">
         <h3>Price Range</h3>
-        <input type="range" min="0" max="1000" value="500" [(ngModel)]="price">
-        <p>Max Price: <span id="max-price">{{price}}</span>$</p>
+        <mat-slider 
+            min="0" 
+            max="100000" 
+            step="1000"
+            showTickMarks 
+            discrete
+            class="price-range" 
+            [displayWith]="formatLabel">
+            <input matSliderThumb [value]="price" [(ngModel)]="price">
+        </mat-slider>
     </div>
-    <div class="filter-brand">
-        <h3>Brand</h3>
-        <select>
-            <option value="">All Brands</option>
-            <option value="Samsung">Samsung</option>
-            <option value="Apple">Apple</option>
-            <option value="Nike">Nike</option>
-            <option value="Sony">Sony</option>
-        </select>
+    <div class="filter-category" *ngIf="categoryService.cartegorires.length">
+        <h3>Category</h3>
+        <ul>
+            <li *ngFor="let category of categoryService.cartegorires">
+                <label>
+                    <input 
+                        type="radio"
+                        name="category" 
+                        [value]="category.id" 
+                        (change)="updateCategory(category.id)"
+                        [checked]="selectedCategoryId === category.id"
+                    >
+                    {{category.name | uppercase}}
+                </label>
+            </li>
+        </ul>
     </div>
-    <div class="filter-sort">
-        <h3>Sort By</h3>
-        <select>
-            <option value="price-asc">Price Low to High</option>
-            <option value="price-desc">Price High to Low</option>
-            <option value="name-asc">Name A to Z</option>
-            <option value="name-desc">Name Z to A</option>
-        </select>
-    </div>
-    <br>
-    <br>
-    <button>Apply Filter</button>
+    <button class="btn cart-btn full-width" (click)="applyFilter()">Apply Filter</button>
 </div>

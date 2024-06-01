@@ -8,7 +8,7 @@
 
         <ul class="header__category-list">
             <li *ngFor="let category of (categories | slice: 0 : 5)">
-                <a [routerLink]="'/products/category/'+category.id">
+                <a routerLink="/products"  [queryParams]="{ categoryId : category.id}">
                     {{category.name}}
                 </a>
             </li>

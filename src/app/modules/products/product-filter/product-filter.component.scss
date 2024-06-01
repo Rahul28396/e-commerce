@@ -7,17 +7,24 @@ body {
     width: 250px;
     padding: 20px;
     background-color: #f4f4f4;
-    height: 100vh;
+    height: 85vh;
     position: fixed;
     z-index: 100;
+    overflow-y: scroll;
 }
-
+.price-range{
+    width: 80%;
+}
 .sidebar h2 {
-    margin-bottom: 20px;
+    font-weight: 600;
+    color: #00000094;
+    margin-bottom: 0.5rem;
+    font-size: large;
 }
-
-.filter-category, .filter-price {
-    margin-bottom: 20px;
+.sidebar h3 {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #00000094;
 }
 
 .filter-price input {

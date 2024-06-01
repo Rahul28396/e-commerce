@@ -10,6 +10,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 const modules = [
   MatToolbarModule,
@@ -22,7 +25,10 @@ const modules = [
   MatCheckboxModule,
   MatIcon,
   MatSlideToggleModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSelectModule,
+  MatSliderModule,
+  MatSidenavModule
 ]
 
 @NgModule({

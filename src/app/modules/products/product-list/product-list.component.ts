@@ -22,8 +22,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.routerService.params.subscribe(params => {
-      const categoryId = params['id'];
+    this.routerService.queryParamMap.subscribe(params => {
+      const categoryId = Number(params.get('categoryId'));
+
       this.productService.getProducts(categoryId).subscribe(products => {
         this.allProducts = products;
       });

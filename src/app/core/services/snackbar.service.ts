@@ -14,7 +14,7 @@ export class SnackbarService {
   openSnackBar(message: string) {
     this._snackBar.open(message, 'close', {
       horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
+      verticalPosition: this.verticalPosition
     });
   }
 }

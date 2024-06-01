@@ -6,7 +6,7 @@ import { productDetailsResolver } from 'src/app/core/resolvers/product-details.r
 
 const routes: Routes = [
   {
-    path: 'category/:id',
+    path: '',
     component: ProductListComponent
   },
   {

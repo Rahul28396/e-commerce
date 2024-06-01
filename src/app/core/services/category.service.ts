@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 export class CategoryService {
   url = 'https://api.escuelajs.co/api/v1/categories';
 
+  cartegorires: Category[] = [];
+
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]>{

@@ -1,17 +1,12 @@
 .product-list {
-
-    &__main-container {
-        display: flex;
-    }
-
+    
     &__product-container {
         display: flex;
         flex-wrap: wrap;
         overflow-y: hidden;
         width: 76%;
         margin: auto;
-        left: 22rem;
-        position: absolute;
+        left: 21rem;
     }
 
     &__empty-state{

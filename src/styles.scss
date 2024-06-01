@@ -24,11 +24,19 @@ body {
     padding: 8px;
     border: none;
     border-radius: 2px;
+
+    &:hover{
+        background-color: rgb(162, 148, 148);
+        color: aliceblue;
+    }
 }
 
 .cart-btn{
     background-color: crimson !important;
     color: white !important;
+    &:hover{
+        background-color: rgb(227, 140, 157) !important;
+    }
 }
 
 

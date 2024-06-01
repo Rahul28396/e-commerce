@@ -47,6 +47,7 @@ export class HeaderComponent implements OnInit{
   private getCategoryList(): void{
     this.categoryService.getCategories().subscribe(data => {
       this.categories = data;
+      this.categoryService.cartegorires = data
     },
     error=> {
       console.log(error);
