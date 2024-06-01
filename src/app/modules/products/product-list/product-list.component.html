@@ -3,19 +3,20 @@
         <app-product-filter />
     </mat-drawer>
     <mat-drawer-content class="product-list__product-container">
-        <ng-container *ngIf="allProducts.length > 0; else emptyProductList">
-            <app-product 
-                *ngFor="let product of allProducts;" [productInfo]="product" 
-            />
-        </ng-container>
-        <ng-template #emptyProductList>
-            <div class="product-list__product-container product-list__empty-state">
-                <app-empty-state 
-                    icon="deployed_code_alert" 
-                    title="Oops!! It seems this category is empty."
-                    subtitle="We will be adding products in the categgory very soon." 
-                />
+        @if(this.isPageLoading){
+            <div class="product-list__loader-container">
+                <mat-spinner></mat-spinner>
             </div>
-        </ng-template>
+        }@else{
+            <ng-container *ngIf="allProducts.length > 0; else emptyProductList">
+                <app-product *ngFor="let product of allProducts;" [productInfo]="product" />
+            </ng-container>
+            <ng-template #emptyProductList>
+                <div class="product-list__product-container product-list__empty-state">
+                    <app-empty-state icon="deployed_code_alert" title="Oops!! It seems this category is empty."
+                        subtitle="We will be adding products in the categgory very soon." />
+                </div>
+            </ng-template>
+        }
     </mat-drawer-content>
 </mat-drawer-container>

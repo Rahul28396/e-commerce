@@ -14,13 +14,7 @@
     </div>
     <div class="filter-price">
         <h3>Price Range</h3>
-        <mat-slider 
-            min="10"
-            max="10000" 
-            step="500"
-            showTickMarks 
-            discrete
-            class="price-range" 
+        <mat-slider min="10" max="10000" step="500" showTickMarks discrete class="price-range"
             [displayWith]="formatLabel">
             <input matSliderThumb [value]="price" [(ngModel)]="price">
         </mat-slider>
@@ -30,17 +24,15 @@
         <ul>
             <li *ngFor="let category of categoryService.cartegorires.slice(0,10)">
                 <label>
-                    <input 
-                        type="radio"
-                        name="category" 
-                        [value]="category.id" 
-                        (change)="updateCategory(category.id)"
-                        [checked]="selectedCategoryId === category.id"
-                    >
+                    <input type="radio" name="category" [value]="category.id" (change)="updateCategory(category.id)"
+                        [checked]="selectedCategoryId === category.id">
                     {{category.name | uppercase}}
                 </label>
             </li>
         </ul>
     </div>
-    <button class="btn cart-btn full-width" (click)="applyFilter()">Apply Filter</button>
+    <div class="flex-container flex-justfy-content-center full-width">
+        <button class="btn cart-btn full-width" (click)="applyFilter()">Apply Filter</button>
+        <button class="btn full-width" (click)="resetFilter()">Reset</button>
+    </div>
 </div>

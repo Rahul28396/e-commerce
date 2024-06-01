@@ -1,5 +1,5 @@
 .product-list {
-    
+
     &__product-container {
         display: flex;
         flex-wrap: wrap;
@@ -9,7 +9,16 @@
         left: 21rem;
     }
 
-    &__empty-state{
+    &__loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        height: 90vh;
+    }
+
+    &__empty-state {
         justify-content: center;
         align-items: center;
     }

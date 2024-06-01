@@ -9,9 +9,9 @@ import { CategoryService } from 'src/app/core/services/category.service';
 })
 export class ProductFilterComponent implements OnInit{
 
-  price: number = 50;
+  price = 50;
   sortBy = 'price-asc';
-  selectedCategoryId : number = 0;
+  selectedCategoryId = 0;
   categoryService = inject(CategoryService);
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
@@ -47,6 +47,17 @@ export class ProductFilterComponent implements OnInit{
         categoryId: this.selectedCategoryId
       },
       queryParamsHandling: 'merge'
+    });
+  }
+
+  resetFilter(){
+    this.price = 50;
+    this.sortBy = 'price-asc';
+    this.router.navigate([],{
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        categoryId: this.selectedCategoryId
+      },
     });
   }
 
