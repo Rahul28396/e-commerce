@@ -3,12 +3,14 @@
     width: 70%;
     margin: auto;
     padding: 48px;
+    justify-content: center;
 
     &__sidebar {
         list-style-type: none;
         padding: 0;
         margin: 0;
         border-right: 1px solid #8080806b;
+        width: 20%;
 
         &--item {
             padding: 12px;
