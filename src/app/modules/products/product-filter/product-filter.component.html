@@ -14,7 +14,7 @@
     </div>
     <div class="filter-price">
         <h3>Price Range</h3>
-        <mat-slider min="10" max="10000" step="500" showTickMarks discrete class="price-range"
+        <mat-slider min="0" max="200" step="10" showTickMarks discrete class="price-range"
             [displayWith]="formatLabel">
             <input matSliderThumb [value]="price" [(ngModel)]="price">
         </mat-slider>
