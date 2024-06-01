@@ -17,7 +17,7 @@ export class ProductComponent {
   @Output() moveToCart = new EventEmitter<number>();
   @Output() cancelProduct  = new EventEmitter<number>();
 
-  private _snackbarService = inject(SnackbarService)
+  private _snackbarService = inject(SnackbarService);
 
   constructor(
     private _cartService: CartService,
@@ -37,16 +37,14 @@ export class ProductComponent {
       image: images[0]
     }
     this._cartService.updateToCart(cartItem, action);
-    this._snackbarService.openSnackBar('Item is added to your cart')
   }
 
   addToWishlist(productId: number): void {
     this._wishlistService.addToWishList(productId);
-    this._snackbarService.openSnackBar('Item is added to your wishlist');
   }
 
   goToDetailsPage(productId: number): void{
-    this._router.navigate(['products',productId])
+    this._router.navigate(['products',productId]);
   }
   
 }

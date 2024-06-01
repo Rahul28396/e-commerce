@@ -1,1 +1,10 @@
-<p>orders works!</p>
+<section>
+    <h3>Order List</h3>
+    <div *ngFor="let order of orderList">
+        <section>
+            <h4>Order Items</h4>
+            <p *ngFor="let item of order.items" >{{item.title}} {{item.count}}</p>
+        </section>
+        <mat-divider></mat-divider>
+    </div>
+</section>

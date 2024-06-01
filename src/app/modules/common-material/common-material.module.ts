@@ -14,6 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDividerModule} from '@angular/material/divider';
 
 const modules = [
   MatToolbarModule,
@@ -30,7 +31,8 @@ const modules = [
   MatSelectModule,
   MatSliderModule,
   MatSidenavModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDividerModule
 ]
 
 @NgModule({

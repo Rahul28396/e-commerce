@@ -1,5 +1,5 @@
 <div class="checkout">
-    <section class="checkout__container" *unless="isOrderDone; else orderSuccessFull">
+    <section class="checkout__container" *ngIf="!isOrderDone; else orderSuccessFull">
         <section [ngClass]="{'checkout__details': !isEmptyState, 'full-width': isEmptyState}">
             <router-outlet></router-outlet>
         </section>

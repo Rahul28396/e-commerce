@@ -15,13 +15,6 @@ export class RecommendedPaymentComponent {
   
   options: PaymentOption[] = [
     {
-      displayName: 'Cash on delivery',
-      value: 'cash-on-delivery',
-      component: {
-        name: CashOnDeliveryComponent,
-      }
-    },
-    {
       displayName: 'Google pay',
       value: 'gpay',
       component: {
@@ -51,7 +44,4 @@ export class RecommendedPaymentComponent {
 
   selectedOption!: string;
 
-  constructor(){
-    console.log(typeof CashOnDeliveryComponent);
-  }
 }

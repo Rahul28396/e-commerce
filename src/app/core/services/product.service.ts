@@ -14,12 +14,12 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(categoryId: number): Observable<Product[]> {
-    const url = `${this.host}categories/${categoryId}/products`;
+    const url = `${this.host}/categories/${categoryId}/products`;
     return this.http.get<Product[]>(url);
   }
 
   getProduct(productId: number): Observable<Product> {
-    const url = `${this.host}products/${productId}`;
+    const url = `${this.host}/products/${productId}`;
     return this.http.get<Product>(url);
   }
 

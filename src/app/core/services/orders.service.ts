@@ -17,6 +17,8 @@ export class OrdersService {
   }
 
   placeOrder(order: Order){
-    this.localStorageService.addItem(this.storageKey,order);
+    const orders = this.getOrders();
+    orders.push(order);
+    this.localStorageService.addItem(this.storageKey,orders);
   }
 }

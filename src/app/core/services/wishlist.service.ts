@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CartService } from './cart.service';
 import { Product } from '../models/product.model';
 import { ProductService } from './product.service';
 import { CartProduct } from '../models/cart-product.model';
 import { LocalStorageService } from './local-storage.service';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class WishlistService {
 
   wishListProducts: Product[] = [];
   wishListStorageKey: string = 'WISHLIST';
+  private _snackbarService = inject(SnackbarService);
 
   getWishlistProducts(): Product[] {
     return this._localStorageService.getItem<Product[]>(this.wishListStorageKey) ?? [];
@@ -31,10 +33,13 @@ export class WishlistService {
         if (!this.wishListProducts.find(item => item.id === productId)) {
           this.wishListProducts.push(data);
           this._localStorageService.addItem<Product[]>(this.wishListStorageKey, this.wishListProducts);
+          this._snackbarService.openSnackBar('Item is added to your wishlist');
+        }else{
+          this._snackbarService.openSnackBar('Already present in the wishlist');
         }
       },
       error: (err) => {
-        console.log(err);
+        this._snackbarService.openSnackBar('Oopps!! Something went wrong.Please try after sometime');
       },
       complete: () => {
 
@@ -45,6 +50,7 @@ export class WishlistService {
   removeFromWishList(productId: number): void {
     this.wishListProducts = this.wishListProducts.filter((item) => item.id !== productId);
     this._localStorageService.removeItem(productId, this.wishListStorageKey);
+    this._snackbarService.openSnackBar('Item successfully removed from wishlist');
   }
 
   moveToBag(productId: number): void {
@@ -59,9 +65,10 @@ export class WishlistService {
           image: data.images[0]
         }
         this._cartService.updateToCart(cartProduct, 'add');
+        this._snackbarService.openSnackBar('Item successfully moved to your cart');
       },
       error: (err) => {
-        console.log(err);
+        this._snackbarService.openSnackBar('Oopps!! Something went wrong.Please try after sometime');
       },
       complete: () => {
 

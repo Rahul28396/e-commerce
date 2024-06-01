@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CartProduct } from '../models/cart-product.model';
 import { LocalStorageService } from './local-storage.service';
 import { PriceDetails } from '../models/price-details.model';
 import { Address } from '../models/address.model';
 import { OrdersService } from './orders.service';
 import { Order } from '../models/order.model';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,8 @@ export class CartService {
   payment!: string;
 
   isOrderDone: boolean = false;
+
+  private _snackbarService = inject(SnackbarService);
 
   get totalCartItems(): number {
     return this.cartItems.reduce((acc: number, item: CartProduct) => acc + (item.count ?? 0), 0)
@@ -62,18 +65,20 @@ export class CartService {
     }
 
     this._localStorageService.addItem<CartProduct[]>(this.cartStorageKey, this.cartItems);
-
+    this._snackbarService.openSnackBar('Item is added to your cart');
     this.getCartItems();
 
   }
 
   removeItem(product: CartProduct): void {
     this._localStorageService.removeItem<CartProduct>(product.id, this.cartStorageKey);
+    this._snackbarService.openSnackBar('Item is removed from your cart');
     this.getCartItems();
   }
 
   clearCart(): void {
     this._localStorageService.clearStorage(this.cartStorageKey);
+    this._snackbarService.openSnackBar('All items are removed from your cart');
     this.getCartItems();
   }
 
