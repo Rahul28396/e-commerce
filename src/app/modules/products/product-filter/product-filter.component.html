@@ -15,9 +15,9 @@
     <div class="filter-price">
         <h3>Price Range</h3>
         <mat-slider 
-            min="0" 
-            max="100000" 
-            step="1000"
+            min="10"
+            max="10000" 
+            step="500"
             showTickMarks 
             discrete
             class="price-range" 
@@ -28,7 +28,7 @@
     <div class="filter-category" *ngIf="categoryService.cartegorires.length">
         <h3>Category</h3>
         <ul>
-            <li *ngFor="let category of categoryService.cartegorires">
+            <li *ngFor="let category of categoryService.cartegorires.slice(0,10)">
                 <label>
                     <input 
                         type="radio"

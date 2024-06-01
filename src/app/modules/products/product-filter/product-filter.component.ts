@@ -15,22 +15,14 @@ export class ProductFilterComponent implements OnInit{
   categoryService = inject(CategoryService);
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
-  private categoryId : number = 0;
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((data) => {
-      this.categoryId = Number(data.get('id'));
-      this.updateCategory(this.categoryId);
-    });
-
     this.activatedRoute.queryParamMap.subscribe((data) => {
-      this.price = data.has('price') ? Number(data.get('price')) : 0;
+      this.price = data.has('price_max') ? Number(data.get('price_max')) : 0;
       this.sortBy = data.has('sort') ? String(data.get('sort')) : 'price-asc';
       this.selectedCategoryId = data.has('categoryId') 
         ? Number(data.get('categoryId')) 
         : 0;
-      
-      console.log(this.price,this.sortBy, this.selectedCategoryId)
     });
   }
 
@@ -50,13 +42,12 @@ export class ProductFilterComponent implements OnInit{
     this.router.navigate([],{
       relativeTo: this.activatedRoute,
       queryParams: {
-        price: this.price,
-        sort: this.sortBy,
-        categoryId : this.selectedCategoryId.toString()
+        price_min: 1,
+        price_max: this.price,
+        categoryId: this.selectedCategoryId
       },
       queryParamsHandling: 'merge'
     });
   }
-
 
 }

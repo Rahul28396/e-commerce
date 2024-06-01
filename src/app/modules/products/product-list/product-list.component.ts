@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductFilterQuery } from 'src/app/core/models/product-filter-query.model';
 import { Product } from 'src/app/core/models/product.model';
 import { ProductService } from 'src/app/core/services/product.service';
 
@@ -11,24 +12,26 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class ProductListComponent implements OnInit {
 
   allProducts: Product[] = [];
-  price = 100;
+  filterQuery = {};
 
   constructor(
     private productService: ProductService,
-    private routerService: ActivatedRoute
-  ) {
-
-  }
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParamMap.subscribe((data) => {
+      let query: ProductFilterQuery = {};
+      for (const key of data.keys) {
+        query[key] = isNaN(Number(data.get(key))) ? String(data.get(key)) : Number(data.get(key));
+      }
 
-    this.routerService.queryParamMap.subscribe(params => {
-      const categoryId = Number(params.get('categoryId'));
+      this.filterQuery = query;
 
-      this.productService.getProducts(categoryId).subscribe(products => {
+      this.productService.filterProducts(this.filterQuery).subscribe(products => {
         this.allProducts = products;
-      });
-    })
+      });;
+    });
 
   }
 }
