@@ -2,8 +2,8 @@
     <h3>Order List</h3>
     <div *ngFor="let order of orderList">
         <section>
-            <h4>Order Items</h4>
-            <p *ngFor="let item of order.items" >{{item.title}} {{item.count}}</p>
+            <h4>Order Id: {{order.id}}</h4>
+            <app-order-item *ngFor="let item of order.items" [orderItem]="item" ></app-order-item>
         </section>
         <mat-divider></mat-divider>
     </div>

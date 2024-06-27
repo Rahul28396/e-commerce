@@ -10,6 +10,8 @@ import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import { ManageUpiComponent } from './manage-upi/manage-upi.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonMaterialModule } from '../common-material/common-material.module';
+import { OrderItemComponent } from './order-item/order-item.component';
+import { PipeModule } from 'src/app/shared/pipes/pipe.module';
 
 
 @NgModule({
@@ -19,13 +21,15 @@ import { CommonMaterialModule } from '../common-material/common-material.module'
     OrdersComponent,
     ManageAddressComponent,
     ManageCardsComponent,
-    ManageUpiComponent
+    ManageUpiComponent,
+    OrderItemComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
-    CommonMaterialModule
+    CommonMaterialModule,
+    PipeModule
   ]
 })
 export class UserModule { }
