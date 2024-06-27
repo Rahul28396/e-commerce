@@ -1,30 +1,38 @@
+<mat-divider></mat-divider>
 <div class="cart-item">
-    <div class="cart-item__container">
+    <section class="cart-item__container">
         <img [src]="orderItem.image | productImage" [alt]="orderItem.title" class="cart-item__img">
         <div class="cart-item__details">
-            <h3 class="cart-item__name">{{orderItem.title}}</h3>
+            <section>
+                <h3 class="cart-item__name">{{orderItem.title}}</h3>
 
-            <p class="cart-item__price">
-                <span class="cart-item__price--actual">
-                    {{orderItem.price| currency: 'INR'}}
-                </span>
-                <span class="strke-through">
-                    {{orderItem.price + 30 | currency: 'INR'}}
-                </span>
-                <span class="cart-item__price--off">
-                    (30% Off)
-                </span>
-            </p>
-
-            <div class="cart-item__quantity-container">
-                <span class="cart-item__price--actual">
-                    {{orderItem.price| currency: 'INR'}}
-                </span>
-                X
-                <span class="cart-item__price--actual">
-                    {{orderItem.count}}
-                </span>
-            </div>
+                <p class="cart-item__price">
+                    <span class="cart-item__price--actual">
+                        {{orderItem.price| currency: 'INR'}}
+                    </span>
+                    <span class="strke-through">
+                        {{orderItem.price + 30 | currency: 'INR'}}
+                    </span>
+                    <span class="cart-item__price--off">
+                        (30% Off)
+                    </span>
+                </p>
+            </section>
         </div>
-    </div>
+    </section>
+    <section class="cart-item__total-price">
+
+        <span class="cart-item__price--actual">
+            {{orderItem.count}}
+        </span>
+        X
+        <span class="cart-item__price--actual">
+            {{orderItem.price| currency: 'INR'}}
+        </span>
+        =
+        <span class="cart-item__price--actual">
+            {{(orderItem.count ?? 0) * (orderItem.price) | currency: 'INR'}}
+        </span>
+    </section>
 </div>
+<mat-divider></mat-divider>

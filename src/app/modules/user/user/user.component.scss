@@ -1,6 +1,7 @@
 .profile {
     display: flex;
-    width: 70%;
+    width: 90%;
+    gap: 16px;
     margin: auto;
     padding: 48px;
     justify-content: center;
@@ -39,7 +40,6 @@
     &__main-container {
         padding: 12px;
         margin: 12px;
-        border: 1px solid #8080807a;
         width: 60%;
     }
 }

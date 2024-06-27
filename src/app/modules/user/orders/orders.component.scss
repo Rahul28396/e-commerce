@@ -1,0 +1,77 @@
+$order-pending: 'pending';
+$order-delivered: 'delivered';
+$order-canceled: 'canceled';
+
+@mixin order-status($type) {
+    border: 1px solid;
+    border-radius: 10%;
+    padding: 2px 8px;
+    font-size: small;
+    font-weight: 500;
+
+    @if $type ==$order-pending {
+        color: #d3d33a;
+    }
+
+    @if $type ==$order-delivered {
+        color: #3fe825;
+    }
+
+    @if $type ==$order-canceled {
+        color: #e83538;
+    }
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    border: 1px solid #8080807a;
+    padding: 12px;
+    border-radius: 8px;
+
+    &__item {
+        margin: 12px 0;
+    }
+
+    &__list-header {
+        font-size: large;
+        font-weight: 600;
+    }
+
+    &__item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    &__item-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    &__total-price {
+        font-size: medium;
+        font-weight: 600;
+    }
+
+    &__item-id {
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+
+    &__item-status-pending {
+        @include order-status($order-pending)
+    }
+
+    &__item-status-canceled {
+        @include order-status($order-canceled)
+    }
+
+    &__item-status-delivered {
+        @include order-status($order-delivered)
+    }
+}

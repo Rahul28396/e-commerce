@@ -1,22 +1,21 @@
 .cart-item {
 
     display: flex;
-    // border: 1px solid #8080803d;
     border-radius: 2px;
     margin: 8px;
     padding: 12px;
     justify-content: space-between;
+    align-items: baseline;
 
-
-    &__container{
+    &__container {
         display: flex;
         gap: 24px;
 
     }
 
     &__img {
-        width: 7rem;
-        height: 7rem;
+        width: 4rem;
+        height: 4rem;
     }
 
     &__name {
@@ -47,19 +46,19 @@
         }
     }
 
-    &__details{
+    &__details {
         display: flex;
         flex-direction: column;
         gap: 8px;
     }
 
-    &__quantity-container{
+    &__quantity-container {
         display: flex;
         justify-self: center;
         align-items: center;
     }
 
-    &__quantity-btn{
+    &__quantity-btn {
         padding: 4px;
         color: white;
         font-size: larger;
@@ -69,11 +68,20 @@
         border-radius: 2px;
     }
 
-    &__quantity-input{
+    &__quantity-input {
         padding: 4px;
         width: 32px;
         text-align: center;
         border: none;
+    }
 
+    &__total-price {
+        width: 10rem;
+        border: 1px solid;
+        padding: 4px 8px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 4px;
+        color: rgb(0 0 0 / 58%);
     }
 }

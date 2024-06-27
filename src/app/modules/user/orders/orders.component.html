@@ -1,10 +1,18 @@
 <section>
-    <h3>Order List</h3>
-    <div *ngFor="let order of orderList">
-        <section>
-            <h4>Order Id: {{order.id}}</h4>
-            <app-order-item *ngFor="let item of order.items" [orderItem]="item" ></app-order-item>
+    <h3 class="order__list-header">Order List</h3>
+    <div *ngFor="let order of orderList" class="order">
+        <section class="order__item">
+            <div class="order__item-header">
+                <h4 class="order__item-id">Order Id: {{order.id}}</h4>
+                <!--<span class="order__item-status-pending">Pending</span> -->
+                <!-- <span class="order__item-status-canceled">Canceled</span> -->
+                <span class="order__item-status-delivered">Delivered</span>
+            </div>
+            <app-order-item *ngFor="let item of order.items" [orderItem]="item"></app-order-item>
         </section>
-        <mat-divider></mat-divider>
+        <section class="order__item-footer">
+            <button type="button" class="btn">View Details</button>
+            <span class="order__total-price">Total: {{order.paymentDetals.totalMrp | currency: 'INR'}}</span>
+        </section>
     </div>
 </section>
