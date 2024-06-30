@@ -4,7 +4,7 @@ $order-canceled: 'canceled';
 
 @mixin order-status($type) {
     border: 1px solid;
-    border-radius: 10%;
+    border-radius: 2rem;
     padding: 2px 8px;
     font-size: small;
     font-weight: 500;
