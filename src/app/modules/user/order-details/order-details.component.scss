@@ -60,4 +60,10 @@
         font-weight: 600;
         color: rgb(0 0 0 / 60%);
     }
+
+    &__download-button {
+        border-radius: 2rem;
+        border: none;
+        box-shadow: 2px 4px 4px 1px rgb(0, 0, 0, 0.2);
+    }
 }

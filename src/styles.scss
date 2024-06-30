@@ -23,7 +23,7 @@ body {
 .btn{
     padding: 8px;
     border: none;
-    border-radius: 2px;
+    border-radius: 2rem;
 
     &:hover{
         background-color: rgb(162, 148, 148);
@@ -33,6 +33,7 @@ body {
 
 .cart-btn{
     background-color: crimson !important;
+    border-radius: 2rem;
     color: white !important;
     &:hover{
         background-color: rgb(227, 140, 157) !important;
