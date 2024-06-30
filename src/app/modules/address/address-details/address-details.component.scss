@@ -1,25 +1,25 @@
-.delivery-address{
+.delivery-address {
 
-    &__header{
+    &__header {
         font-weight: 500;
     }
 
-    &__info{
+    &__info {
         display: flex;
-        border: 1px solid #8080803d;
         border-radius: 4px;
         margin-bottom: 16px;
         position: relative;
         padding: 16px 36px;
+        box-shadow: 4px 5px 10px 0px rgb(0, 0, 0, 0.2);
     }
 
-    &__checkbox{
+    &__checkbox {
         position: absolute;
         top: 16px;
         left: 8px;
     }
 
-    &__selected{
+    &__selected {
         box-shadow: #9392923d;
     }
 }

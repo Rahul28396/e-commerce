@@ -1,12 +1,11 @@
 <div class="delivery-address__info">
-    <input type="radio" name="delivery-address" class="delivery-address__checkbox" [checked]="isChecked" (change)="onChange.emit(addressDetails)">
+    <input type="radio" name="delivery-address" class="delivery-address__checkbox" [checked]="isChecked"
+        (change)="onChange.emit(addressDetails)">
     <div>
         <h4 class="delivery-address__header">{{addressDetails.name}}</h4>
-        <address>
-            <p>{{addressDetails.area}},{{addressDetails.locality}},{{addressDetails.district}}</p>
-            <p>{{addressDetails.state}}, Pin - {{addressDetails.pincode}}</p>
-        </address>
-        <p>Mob: {{addressDetails.phone}}</p>
+        <p>{{addressDetails.area}},{{addressDetails.locality}},{{addressDetails.district}}</p>
+        <p>{{addressDetails.state}}, Pin - {{addressDetails.pincode}}</p>
+        <p>Phone: {{addressDetails.phone}}</p>
         <div *ngIf="isChecked">
             <button mat-button type="button" (click)="removeAddress.emit(addressDetails.id)">Remove</button>
             <button mat-button type="button" (click)="editAddress.emit(addressDetails)">Edit</button>
