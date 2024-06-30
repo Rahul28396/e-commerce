@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddressFormComponent } from '../address-form/address-form.component';
 import { AddressService } from 'src/app/core/services/address.service';
 import { Address } from 'src/app/core/models/address.model';
 import { CartService } from 'src/app/core/services/cart.service';
+import { AddressFormComponent } from '../address-form/address-form.component';
 
 @Component({
   selector: 'app-address',

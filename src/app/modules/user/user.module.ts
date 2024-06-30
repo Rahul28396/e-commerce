@@ -13,6 +13,7 @@ import { CommonMaterialModule } from '../common-material/common-material.module'
 import { OrderItemComponent } from './order-item/order-item.component';
 import { PipeModule } from 'src/app/shared/pipes/pipe.module';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { AddressModule } from '../address/address.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     UserRoutingModule,
     ReactiveFormsModule,
     CommonMaterialModule,
-    PipeModule
+    PipeModule,
+    AddressModule
   ]
 })
 export class UserModule { }

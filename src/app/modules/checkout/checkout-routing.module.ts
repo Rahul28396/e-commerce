@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
-import { AddressComponent } from './address/address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddressComponent } from '../address/address/address.component';
 
 
 const routes: Routes = [

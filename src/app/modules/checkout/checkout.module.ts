@@ -9,7 +9,6 @@ import { PipeModule } from 'src/app/shared/pipes/pipe.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedComponentModule } from 'src/app/shared/components/shared-component.module';
 import { CartPriceComponent } from './cart-price/cart-price.component';
-import { AddressComponent } from './address/address.component';
 import { CommonMaterialModule } from '../common-material/common-material.module';
 import { PaymentComponent } from './payment/payment.component';
 import { CashOnDeliveryComponent } from './payment-mode/cash-on-delivery/cash-on-delivery.component';
@@ -18,10 +17,9 @@ import { UpiPaymentComponent } from './payment-mode/upi-payment/upi-payment.comp
 import { RecommendedPaymentComponent } from './payment-mode/recommended-payment/recommended-payment.component';
 import { PayNowComponent } from './payment-mode/pay-now/pay-now.component';
 import { PaymentOptionComponent } from './payment-mode/payment-option/payment-option.component';
-import { AddressFormComponent } from './address-form/address-form.component';
-import { AddressDetailsComponent } from './address-details/address-details.component';
 import { OrderSuccessfullComponent } from './order-successfull/order-successfull.component';
 import { DirectiveModule } from 'src/app/shared/directives/directive.module';
+import { AddressModule } from '../address/address.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +27,6 @@ import { DirectiveModule } from 'src/app/shared/directives/directive.module';
     CartItemComponent,
     CartComponent,
     CartPriceComponent,
-    AddressComponent,
     PaymentComponent,
     CashOnDeliveryComponent,
     CardPaymentComponent,
@@ -37,8 +34,6 @@ import { DirectiveModule } from 'src/app/shared/directives/directive.module';
     RecommendedPaymentComponent,
     PayNowComponent,
     PaymentOptionComponent,
-    AddressFormComponent,
-    AddressDetailsComponent,
     OrderSuccessfullComponent
   ],
   imports: [
@@ -49,7 +44,8 @@ import { DirectiveModule } from 'src/app/shared/directives/directive.module';
     PipeModule,
     FormsModule,
     ReactiveFormsModule,
-    DirectiveModule
+    DirectiveModule,
+    AddressModule
   ]
 })
 export class CheckoutModule { }
