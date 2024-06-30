@@ -16,6 +16,10 @@ export class OrdersService {
     return this.localStorageService.getItem<Order[]>(this.storageKey) ?? [];
   }
 
+  getOrderById(orderId: number): Order | undefined {
+    return this.localStorageService.getItemById<Order>(this.storageKey, orderId);
+  }
+
   placeOrder(order: Order){
     const orders = this.getOrders();
     orders.push(order);

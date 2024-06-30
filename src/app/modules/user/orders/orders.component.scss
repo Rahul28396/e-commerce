@@ -26,8 +26,8 @@ $order-canceled: 'canceled';
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;
-    border: 1px solid #8080807a;
-    padding: 12px;
+    box-shadow: 2px 8px 8px 2px rgba(0, 0, 0, 0.078431372);
+    padding: 2rem;
     border-radius: 8px;
 
     &__item {

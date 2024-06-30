@@ -15,6 +15,12 @@ export class LocalStorageService {
     return undefined;
   }
 
+  getItemById<T extends { id: number}>(key: string, id: number): T | undefined {
+    const items = this.getItem<T[]>(key);
+    
+    return items?.find(x => x.id === id);
+  }
+
   addItem<T>(key: string, value: T) {
     localStorage.setItem(key, JSON.stringify(value));
   }

@@ -8,6 +8,7 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { ManageUpiComponent } from './manage-upi/manage-upi.component';
 import { canComponentDeactivateGuard } from 'src/app/core/route-guards/can-component-deactivate.guard';
 import { profileDetailsResolver } from 'src/app/core/resolvers/profile-details-resolver.resolver';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,11 @@ const routes: Routes = [
         path: 'orders',
         title: 'ORDERS',
         component: OrdersComponent
+      },
+      {
+        path: 'orders/:orderId',
+        title: 'ORDER DETAILS',
+        component: OrderDetailsComponent
       },
       {
         path: 'vpa',

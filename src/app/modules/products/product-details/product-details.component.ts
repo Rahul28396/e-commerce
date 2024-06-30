@@ -15,8 +15,7 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private _routerService: ActivatedRoute,
-    private _title: TemplatePageTitleStrategyService,
-    // private builtInTitle : Title
+    private _title: TemplatePageTitleStrategyService
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
       this.selectedImage = this.productDetails.images[0];
       this._title.setTitle(this.productDetails.title);
       // this.builtInTitle.setTitle(this.productDetails.title)
-    })
+    });
 
   }
 

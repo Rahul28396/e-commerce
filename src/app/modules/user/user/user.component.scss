@@ -8,30 +8,33 @@
 
     &__sidebar {
         list-style-type: none;
-        padding: 0;
+        padding: 16px;
         margin: 0;
-        border-right: 1px solid #8080806b;
+        border-radius: 4px;
+        height: 24rem;
+
         width: 20%;
+        box-shadow: 4px 4px 12px -8px rgb(0, 0, 0, 0.9);
 
         &--item {
             padding: 12px;
-            margin-right: 24px;
+            margin-right: 0px;
 
-            > a{
+            >a {
                 text-decoration: none;
                 color: inherit;
                 cursor: pointer;
             }
-            
-            &:not(:last-child){
+
+            &:not(:last-child) {
                 border-bottom: 1px solid #8080808a;
             }
 
-            &:hover{
+            &:hover {
                 background-color: #8080807a;
             }
 
-            &-selected{
+            &-selected {
                 background-color: #8080806b;
             }
         }

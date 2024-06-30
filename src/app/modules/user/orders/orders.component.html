@@ -11,7 +11,7 @@
             <app-order-item *ngFor="let item of order.items" [orderItem]="item"></app-order-item>
         </section>
         <section class="order__item-footer">
-            <button type="button" class="btn">View Details</button>
+            <a [routerLink]="'./' + order.id" class="btn text-decoration-none">View Details</a>
             <span class="order__total-price">Total: {{order.paymentDetals.totalMrp | currency: 'INR'}}</span>
         </section>
     </div>

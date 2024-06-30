@@ -1,0 +1,116 @@
+<div>
+    <h3 class="order-details__item-header">
+        <mat-icon aria-hidden="false" aria-label="User profile icon" fontIcon="arrow_back" (click)="goBack()"></mat-icon>
+        Order Details
+    </h3>
+
+    <div class="order-details__information" *ngIf="orderDetails">
+        <section class="order-details__information-details">
+            <div class="text-align-center">
+                <h4 class="order-details__item-header">Order Number</h4>
+                <p class="order-details__number">{{orderDetails.id}}</p>
+            </div>
+            <div class="text-align-center">
+                <h4 class="order-details__item-header">Order Status</h4>
+                <p class="order-details__number">Delivered</p>
+            </div>
+            <div class="text-align-center">
+                <h4 class="order-details__item-header">Download Invoice</h4>
+                <button type="button">
+                    <mat-icon aria-hidden="false" aria-label="User profile icon" fontIcon="download"></mat-icon>
+                </button>
+            </div>
+        </section>
+        <section class="order-details__information-details">
+            <div>
+                <h4 class="order-details__item-header">
+                    <mat-icon aria-hidden="false" aria-label="User profile icon" fontIcon="location_on"></mat-icon>
+                    Item Location
+                </h4>
+                <div class="order-details__item-details">
+                    <p>
+                        {{orderDetails.deliveryAddress.area}},
+                        {{orderDetails.deliveryAddress.locality}},
+                        {{orderDetails.deliveryAddress.district}},
+                    </p>
+                    <p>
+                        {{orderDetails.deliveryAddress.state}},
+                        {{orderDetails.deliveryAddress.pincode}},
+                    </p>
+                    <p>
+                        {{orderDetails.deliveryAddress.phone}}
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h4 class="order-details__item-header">
+                    <mat-icon aria-hidden="false" aria-label="User profile icon" fontIcon="home_pin"></mat-icon>
+                    Delivery Location
+                </h4>
+                <div class="order-details__item-details">
+                    <p>
+                        {{orderDetails.deliveryAddress.area}},
+                        {{orderDetails.deliveryAddress.locality}},
+                        {{orderDetails.deliveryAddress.district}},
+                    </p>
+                    <p>
+                        {{orderDetails.deliveryAddress.state}},
+                        {{orderDetails.deliveryAddress.pincode}},
+                    </p>
+                    <p>
+                        Phone: {{orderDetails.deliveryAddress.phone}}
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h4 class="order-details__item-header">
+                        <mat-icon aria-hidden="false" aria-label="User profile icon" fontIcon="calendar_month"></mat-icon>
+                        Date of order
+                    </h4>
+                    <p class="order-details__item-details text-align-center">{{orderDetails.date | date}}</p>
+                </div>
+
+                <div>
+                    <h4 class="order-details__item-header">
+                        <mat-icon aria-hidden="false" aria-label="User profile icon" fontIcon="calendar_month"></mat-icon>
+                        Delivery of order
+                    </h4>
+                    <p class="order-details__item-details text-align-center">{{orderDetails.date | date}}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="order-details__information" *ngIf="orderDetails">
+        <section class="order-details__information-details">
+            <div>
+                <h4 class="order-details__item-header">Order Information</h4>
+                <div style="display: flex; gap: 48px;">
+                    <div>
+                        <h4 class="order-details__item-subheader">Number Of Items</h4>
+                        <p class="order-details__item-subdetails">{{orderDetails.items.length}}</p>
+                    </div>
+                    <div>
+                        <h4 class="order-details__item-subheader">Insured Shipment</h4>
+                        <p class="order-details__item-subdetails">Yes</p>
+                    </div>
+                    <div>
+                        <h4 class="order-details__item-subheader">Payment Type</h4>
+                        <p class="order-details__item-subdetails">{{orderDetails.paymentType}}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4 class="order-details__item-header">Total Order Price</h4>
+                <div class="order-details__total-price">
+                    <p>{{orderDetails.paymentDetals.totalMrp | currency: 'INR'}}</p>
+                </div>
+            </div>
+        </section>
+        <section class="order-details__item">
+            <h4 class="order-details__item-header">Order Items</h4>
+            <app-order-item *ngFor="let item of orderDetails.items" [orderItem]="item" />
+        </section>
+    </div>
+
+</div>

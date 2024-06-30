@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonMaterialModule } from '../common-material/common-material.module';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { PipeModule } from 'src/app/shared/pipes/pipe.module';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PipeModule } from 'src/app/shared/pipes/pipe.module';
     ManageAddressComponent,
     ManageCardsComponent,
     ManageUpiComponent,
-    OrderItemComponent
+    OrderItemComponent,
+    OrderDetailsComponent
   ],
   imports: [
     CommonModule,
